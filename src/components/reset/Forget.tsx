@@ -4,6 +4,7 @@ import { ArrowLeft, Loader } from "lucide-react";
 import { TLoginValues } from "@/types/common";
 import { useState } from "react";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const ForgetPassword = ({ setActive }: { setActive: (value: string) => void })=> {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,6 +17,7 @@ const ForgetPassword = ({ setActive }: { setActive: (value: string) => void })=>
   const onSubmit: SubmitHandler<TLoginValues> = async (data) => {
     console.log(data);
     setActive("verify")
+    toast.success("An otp was sent to your email")
     setIsLoading(false);
   };
   return (
@@ -48,7 +50,7 @@ const ForgetPassword = ({ setActive }: { setActive: (value: string) => void })=>
           {isLoading ? (
             <Loader className="animate-spin mx-auto"></Loader>
           ) : (
-            "Reset Password"
+            "Send OTP"
           )}
         </button>
       </form>

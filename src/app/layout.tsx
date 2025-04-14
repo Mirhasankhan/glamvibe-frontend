@@ -5,6 +5,9 @@ import { ThemeProvider } from "@/components/Providers/ThemeProvider";
 import Header from "@/components/shared/Header/Header";
 import SubHeader from "@/components/shared/Header/SubHeader";
 import Footer from "@/components/shared/Footer/Footer";
+import Providers from "@/lib/providers/Providers";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,12 +40,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div>
-            <SubHeader></SubHeader>
-            <Header></Header>
-            {children}
-            <Footer></Footer>
-          </div>
+          <Providers>
+            <div>
+            <ToastContainer position="top-right" autoClose={3000}/>
+              <SubHeader></SubHeader>
+              <Header></Header>
+              {children}
+              <Footer></Footer>
+            </div>
+          </Providers>
         </ThemeProvider>
       </body>
     </html>

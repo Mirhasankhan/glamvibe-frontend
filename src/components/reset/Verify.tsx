@@ -2,6 +2,7 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useState, useRef } from "react";
+import { toast } from "react-toastify";
 
 const Verify = ({ setActive }: { setActive: (value: string) => void }) => {
   const [code, setCode] = useState(["", "", "", ""]);
@@ -32,7 +33,7 @@ const Verify = ({ setActive }: { setActive: (value: string) => void }) => {
     const numberCode = parseInt(code.join(""), 10);
     console.log(numberCode);
     setActive("reset");
-    alert(`Code verified: ${code.join("")}`);
+    toast.error("Verifeid hoye gece")
   };
 
   return (

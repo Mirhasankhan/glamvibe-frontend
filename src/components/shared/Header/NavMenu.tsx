@@ -12,7 +12,7 @@ const NavMenu = () => {
       <Link
         onMouseOver={() => setShow(!show)}
         className="hover:text-[#ff84b4]"
-        href="/"
+        href="/services"
       >
         Services
       </Link>
