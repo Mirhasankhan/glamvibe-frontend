@@ -1,12 +1,22 @@
 "use client";
-import { ArrowLeft } from "lucide-react";
+import { useVerifyOtpMutation } from "@/redux/features/auth/authApi";
+import { ArrowLeft, LoaderCircle } from "lucide-react";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 
-const Verify = ({ setActive }: { setActive: (value: string) => void }) => {
+const Verify = ({
+  setActive,
+  email,
+}: {
+  setActive: (value: string) => void;
+  email: string;
+}) => {
   const [code, setCode] = useState(["", "", "", ""]);
+  const [isLoading, setIsLoading] = useState(false);
   const inputRefs = useRef<HTMLInputElement[]>([]);
+  const [verifyOtp] = useVerifyOtpMutation();
 
   const handleChange = (index: number, value: string) => {
     if (/^\d?$/.test(value)) {
@@ -29,11 +39,34 @@ const Verify = ({ setActive }: { setActive: (value: string) => void }) => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const numberCode = parseInt(code.join(""), 10);
-    console.log(numberCode);
-    setActive("reset");
-    toast.error("Verifeid hoye gece")
+    setIsLoading(true);
+    try {
+      const response = await verifyOtp({ email, otp: numberCode.toString() });
+
+      if (response.data) {
+        toast.success(response.data.message);
+        Cookies.set("token", response.data.result.accessToken);
+        setActive("reset");
+        setIsLoading(false);
+      } else if (response.error) {
+        if ("data" in response.error) {
+          const errorData = response.error.data as { message?: string };
+          toast.error(errorData.message || "Something went wrong.");
+          setIsLoading(false);
+        } else {
+          toast.error("Unexpected error structure.");
+          setIsLoading(false);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+      toast.error("An unexpected error occurred.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -62,14 +95,16 @@ const Verify = ({ setActive }: { setActive: (value: string) => void }) => {
       </div>
       <button
         onClick={handleSubmit}
-        disabled={code.join("").length !== 4}
-        className={`mt-4 px-4 py-2 rounded text-white font-bold ${
-          code.join("").length === 4
-            ? "bg-blue-500 hover:bg-blue-600"
-            : "bg-gray-300"
+        disabled={code.join("").length !== 4 || isLoading}
+        className={`mt-4 px-4 py-3  text-white w-60 font-bold ${
+          code.join("").length === 4 ? "bg-primary" : "bg-gray-300"
         }`}
       >
-        Verify
+        {isLoading ? (
+          <LoaderCircle className="animate-spin mx-auto"></LoaderCircle>
+        ) : (
+          "Continue"
+        )}
       </button>
       <Link href="/login" className="flex items-center gap-1 pt-6">
         <ArrowLeft size={15} /> Back to login

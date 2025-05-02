@@ -5,9 +5,12 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Loader } from "lucide-react";
 import { TLoginValues } from "@/types/common";
+import { toast } from "react-toastify";
+import { useResetPasswordMutation } from "@/redux/features/auth/authApi";
 
 const NewPass = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [resetPassword] = useResetPasswordMutation();
   const router = useRouter();
 
   const {
@@ -17,14 +20,37 @@ const NewPass = () => {
   } = useForm<TLoginValues>();
 
   const onSubmit: SubmitHandler<TLoginValues> = async (data) => {
-    if (data.password == data.confirmPassword) {
-      alert("password reset successfully");
-      router.push("/login");
-    } else {
-      alert("Passwords do not match");
-      return;
+    console.log(data);
+    if (data.password !== data.confirmPassword) {
+      toast.error("Password didn't match");
+      return
     }
     setIsLoading(true);
+    try {
+      const response = await resetPassword(data.password);
+      console.log(response);
+
+      if (response.data) {
+        toast.success(response.data.message);
+        router.push("/login");
+        setIsLoading(false);
+      } else if (response.error) {
+        if ("data" in response.error) {
+          const errorData = response.error.data as { message?: string };
+          toast.error(errorData.message || "Something went wrong.");
+          setIsLoading(false);
+        } else {
+          toast.error("Unexpected error structure.");
+          setIsLoading(false);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+      toast.error("An unexpected error occurred.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -69,7 +95,7 @@ const NewPass = () => {
         <button
           disabled={isLoading}
           type="submit"
-          className="bg-[#ff84b4] text-white py-3 w-full font-medium rounded-md"
+          className="bg-primary text-white py-3 w-full font-medium rounded-md"
         >
           {isLoading ? (
             <Loader className="animate-spin mx-auto"></Loader>

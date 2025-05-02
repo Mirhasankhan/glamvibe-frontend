@@ -25,7 +25,7 @@ const Footer = () => {
               className="bg-black bg-opacity-10 focus:outline-none pr-24"
               placeholder="Your email address...."
             />
-            <button className="bg-[#ff84b4] py-3 px-6 rounded-xl text-sm font-medium ">
+            <button className="bg-primary py-3 px-6 rounded-xl text-sm font-medium ">
               Subscribe Now
             </button>
           </div>
@@ -64,18 +64,18 @@ const Footer = () => {
           <div>
             <h1 className="text-xl font-medium pb-3">Get in touch</h1>
             <div className="flex items-center gap-2 pb-6 border-b">
-              <MapPin className="text-[#ff84b4] " />
+              <MapPin className="text-primary " />
               <h1>
                 4789 Melmorn Street, Zakila Ton <br />
                 Mashintron Town
               </h1>
             </div>
             <div className="flex items-center gap-2 py-6 border-b">
-              <Mail className="text-[#ff84b4] " />
+              <Mail className="text-primary " />
               <h1>info@example.com</h1>
             </div>
             <div className="flex items-center gap-2 py-6 border-b pt-3">
-              <Phone className="text-[#ff84b4] " />
+              <Phone className="text-primary " />
               <h1>(+01) 123 456 7890</h1>
             </div>
           </div>

@@ -1,18 +1,22 @@
 "use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-// import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Loader } from "lucide-react";
+import { LoaderCircle } from "lucide-react";
 import logo from "../../assets/fya2.png";
 import Image from "next/image";
 import { TLoginValues } from "@/types/common";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import { useRegisterMutation } from "@/redux/features/auth/authApi";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
-  // const router = useRouter();
+  const [registerUser] = useRegisterMutation();
+  const router = useRouter();
 
   const {
     register,
@@ -21,22 +25,31 @@ const Register = () => {
   } = useForm<TLoginValues>();
 
   const onSubmit: SubmitHandler<TLoginValues> = async (data) => {
-    console.log(data);
-
     setIsLoading(true);
-    // const response = await loginAdmin(loginData);
+    try {
+      const response = await registerUser(data);
 
-    // if (response.data?.success == true) {
-
-    //   localStorage.setItem("token", response.data.result.accessToken);
-
-    //   toast.success(response.data.message);
-    //   router.push("/dashboard/admin");
-    //   setIsLoading(false);
-    // } else if (response.error) {
-    //   toast.error("Invalid Email or password");
-    //   setIsLoading(false);
-    // }
+      if (response.data?.result) {
+        toast.success("User Created Successfully");
+        router.push("/login");
+        setIsLoading(false);
+      } else if (response.error) {
+        if ("data" in response.error) {
+          const errorData = response.error.data as { message?: string };
+          toast.error(errorData.message || "Something went wrong.");
+          setIsLoading(false);
+        } else {
+          toast.error("Unexpected error structure.");
+          setIsLoading(false);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+      toast.error("An unexpected error occurred.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -87,14 +100,14 @@ const Register = () => {
           {errors.password && (
             <p className="text-red-500 text-sm">{errors.password.message}</p>
           )}
-        </div>     
+        </div>
         <button
           disabled={isLoading}
           type="submit"
-          className="bg-[#ff84b4] text-white py-3 w-full font-medium rounded-md"
+          className="bg-primary text-white py-3 w-full font-medium rounded-md"
         >
           {isLoading ? (
-            <Loader className="animate-spin mx-auto"></Loader>
+            <LoaderCircle className="animate-spin mx-auto"></LoaderCircle>
           ) : (
             "Create Account"
           )}
@@ -114,10 +127,7 @@ const Register = () => {
       </button>
       <div className="text-center pt-2">
         Already have an account?
-        <Link
-          href="/login"
-          className="text-[#ff84b4] hover:underline"
-        >
+        <Link href="/login" className="text-primary hover:underline">
           login
         </Link>
       </div>

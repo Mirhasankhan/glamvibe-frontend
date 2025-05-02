@@ -1,10 +1,9 @@
 "use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-// import { useRouter } from "next/navigation";
 import { FaGithub } from "react-icons/fa6";
 import { useState } from "react";
-import { Loader } from "lucide-react";
+import { LoaderCircle } from "lucide-react";
 import logo from "../../assets/fya2.png";
 import Image from "next/image";
 import { TLoginValues } from "@/types/common";
@@ -12,11 +11,15 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
-
+import { useRouter } from "next/navigation";
+import { useLoginMutation } from "@/redux/features/auth/authApi";
+import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
-  // const router = useRouter();
+  const [loginUser] = useLoginMutation();
+  const router = useRouter();
 
   const {
     register,
@@ -25,26 +28,34 @@ const Login = () => {
   } = useForm<TLoginValues>();
 
   const onSubmit: SubmitHandler<TLoginValues> = async (data) => {
-    console.log(data);
-
     setIsLoading(true);
-    // const response = await loginAdmin(loginData);
+    try {
+      const response = await loginUser(data);
 
-    // if (response.data?.success == true) {
-
-    //   localStorage.setItem("token", response.data.result.accessToken);
-
-    //   toast.success(response.data.message);
-    //   router.push("/dashboard/admin");
-    //   setIsLoading(false);
-    // } else if (response.error) {
-    //   toast.error("Invalid Email or password");
-    //   setIsLoading(false);
-    // }
+      if (response.data?.result?.accessToken) {
+        toast.success("Login Successful");
+        router.push("/");
+        setIsLoading(false);
+        Cookies.set("token", response.data?.result.accessToken);
+      } else if (response.error) {
+        if ("data" in response.error) {
+          const errorData = response.error.data as { message?: string };
+          toast.error(errorData.message || "Something went wrong.");
+          setIsLoading(false);
+        } else {
+          toast.error("Unexpected error structure.");
+          setIsLoading(false);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+      toast.error("An unexpected error occurred.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-
- 
   return (
     <div className="w-full md:w-1/3 mx-auto p-2 my-4 dark:text-white">
       <Image src={logo} alt="" height={40} width={40}></Image>
@@ -93,7 +104,7 @@ const Login = () => {
           </div>
           <Link
             href="/reset-password"
-            className="text-[#ff84b4] hover:underline"
+            className="text-primary hover:underline"
           >
             Forgot Your Password?
           </Link>
@@ -101,10 +112,10 @@ const Login = () => {
         <button
           disabled={isLoading}
           type="submit"
-          className="bg-[#ff84b4] text-white py-3 w-full font-medium rounded-md"
+          className="bg-primary text-white py-3 w-full font-medium rounded-md"
         >
           {isLoading ? (
-            <Loader className="animate-spin mx-auto"></Loader>
+            <LoaderCircle className="animate-spin mx-auto"></LoaderCircle>
           ) : (
             "Login"
           )}
@@ -141,7 +152,7 @@ const Login = () => {
       </button>
       <div className="text-center pt-2">
         Dont have an account?
-        <Link href="/register" className="text-[#ff84b4] hover:underline">
+        <Link href="/register" className="text-primary hover:underline">
           Register Here
         </Link>
       </div>

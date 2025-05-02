@@ -1,13 +1,21 @@
 "use client";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { ArrowLeft, Loader } from "lucide-react";
+import { ArrowLeft, LoaderCircle } from "lucide-react";
 import { TLoginValues } from "@/types/common";
 import { useState } from "react";
 import Link from "next/link";
 import { toast } from "react-toastify";
+import { useSendOtpMutation } from "@/redux/features/auth/authApi";
 
-const ForgetPassword = ({ setActive }: { setActive: (value: string) => void })=> {
+const ForgetPassword = ({
+  setActive,
+  setEmail,
+}: {
+  setActive: (value: string) => void;
+  setEmail: (value: string) => void;
+}) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [sendOpt] = useSendOtpMutation();
   const {
     register,
     handleSubmit,
@@ -15,10 +23,32 @@ const ForgetPassword = ({ setActive }: { setActive: (value: string) => void })=>
   } = useForm<TLoginValues>();
 
   const onSubmit: SubmitHandler<TLoginValues> = async (data) => {
-    console.log(data);
-    setActive("verify")
-    toast.success("An otp was sent to your email")
-    setIsLoading(false);
+    setIsLoading(true);
+    try {
+      const response = await sendOpt(data);
+
+      if (response.data) {
+        toast.success(response.data.message);
+        setActive("verify");
+        setIsLoading(false);
+        setEmail(data.email);
+      } else if (response.error) {
+        if ("data" in response.error) {
+          const errorData = response.error.data as { message?: string };
+          toast.error(errorData.message || "Something went wrong.");
+          setIsLoading(false);
+        } else {
+          toast.error("Unexpected error structure.");
+          setIsLoading(false);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+      toast.error("An unexpected error occurred.");
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <div className="flex flex-col items-center justify-center mt-24">
@@ -45,18 +75,18 @@ const ForgetPassword = ({ setActive }: { setActive: (value: string) => void })=>
         <button
           disabled={isLoading}
           type="submit"
-          className="bg-[#ff84b4] text-white py-3 w-full font-medium rounded-md"
+          className="bg-primary text-white py-3 w-full font-medium rounded-md"
         >
           {isLoading ? (
-            <Loader className="animate-spin mx-auto"></Loader>
+            <LoaderCircle className="animate-spin mx-auto"></LoaderCircle>
           ) : (
             "Send OTP"
           )}
         </button>
       </form>
-     <Link href="/login" className="flex items-center gap-1 pt-6">
-     <ArrowLeft size={15}/> Back to login
-     </Link>
+      <Link href="/login" className="flex items-center gap-1 pt-6">
+        <ArrowLeft size={15} /> Back to login
+      </Link>
     </div>
   );
 };
