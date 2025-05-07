@@ -57,7 +57,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full md:w-1/3 mx-auto p-2 my-4 dark:text-white">
+    <div className="w-full md:w-2/4 2xl:w-1/3 mx-auto p-2 my-4 dark:text-white">
       <Image src={logo} alt="" height={40} width={40}></Image>
       <h1 className="text-xl font-medium ppy-2 ">Welcome Back!</h1>
       <p className="text-sm">
