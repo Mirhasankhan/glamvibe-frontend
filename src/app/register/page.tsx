@@ -1,7 +1,6 @@
 "use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useState } from "react";
 import { LoaderCircle } from "lucide-react";
 import logo from "../../assets/fya2.png";
 import Image from "next/image";
@@ -12,11 +11,10 @@ import { useRegisterMutation } from "@/redux/features/auth/authApi";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
-
 const Register = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [registerUser] = useRegisterMutation();
+  const [registerUser, { isLoading }] = useRegisterMutation();
   const router = useRouter();
+  console.log(isLoading);
 
   const {
     register,
@@ -25,30 +23,24 @@ const Register = () => {
   } = useForm<TLoginValues>();
 
   const onSubmit: SubmitHandler<TLoginValues> = async (data) => {
-    setIsLoading(true);
     try {
       const response = await registerUser(data);
 
       if (response.data?.result) {
         toast.success("User Created Successfully");
         router.push("/login");
-        setIsLoading(false);
       } else if (response.error) {
         if ("data" in response.error) {
           const errorData = response.error.data as { message?: string };
           toast.error(errorData.message || "Something went wrong.");
-          setIsLoading(false);
         } else {
           toast.error("Unexpected error structure.");
-          setIsLoading(false);
         }
       }
     } catch (error) {
       console.log(error);
-      setIsLoading(false);
       toast.error("An unexpected error occurred.");
     } finally {
-      setIsLoading(false);
     }
   };
 

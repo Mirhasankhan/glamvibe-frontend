@@ -10,16 +10,15 @@ const bookingsApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["service"],
     }),
-    topOwners: builder.query({
+    categories: builder.query({
       query: () => ({
-        url: `/analysis/top-owner`,
+        url: `/category/all`,
         method: "GET",
-      }),
-      providesTags: ["users"],
+      }),      
     }),
-    topCustomers: builder.query({
-      query: () => ({
-        url: `/analysis/top-customer`,
+    services: builder.query({
+      query: (id) => ({
+        url: `/service/category/${id}`,
         method: "GET",
       }),
       providesTags: ["users"],
@@ -50,8 +49,8 @@ const bookingsApi = baseApi.injectEndpoints({
 
 export const {
   useCreateServiceMutation,
-  useTopOwnersQuery,
-  useTopCustomersQuery,
+  useCategoriesQuery,
+  useServicesQuery,
   useRecentBookingQuery,
   useCancellationsQuery,
   useRevenueQuery,

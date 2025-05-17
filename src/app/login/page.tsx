@@ -2,7 +2,6 @@
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FaGithub } from "react-icons/fa6";
-import { useState } from "react";
 import { LoaderCircle } from "lucide-react";
 import logo from "../../assets/fya2.png";
 import Image from "next/image";
@@ -17,8 +16,7 @@ import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
 const Login = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [loginUser] = useLoginMutation();
+  const [loginUser,{isLoading}] = useLoginMutation();
   const router = useRouter();
 
   const {
@@ -28,31 +26,26 @@ const Login = () => {
   } = useForm<TLoginValues>();
 
   const onSubmit: SubmitHandler<TLoginValues> = async (data) => {
-    setIsLoading(true);
     try {
       const response = await loginUser(data);
 
       if (response.data?.result?.accessToken) {
         toast.success("Login Successful");
         router.push("/");
-        setIsLoading(false);
+
         Cookies.set("token", response.data?.result.accessToken);
       } else if (response.error) {
         if ("data" in response.error) {
           const errorData = response.error.data as { message?: string };
           toast.error(errorData.message || "Something went wrong.");
-          setIsLoading(false);
         } else {
           toast.error("Unexpected error structure.");
-          setIsLoading(false);
         }
       }
     } catch (error) {
       console.log(error);
-      setIsLoading(false);
       toast.error("An unexpected error occurred.");
     } finally {
-      setIsLoading(false);
     }
   };
 
@@ -102,10 +95,7 @@ const Login = () => {
               Remember Me
             </label>
           </div>
-          <Link
-            href="/reset-password"
-            className="text-primary hover:underline"
-          >
+          <Link href="/reset-password" className="text-primary hover:underline">
             Forgot Your Password?
           </Link>
         </div>

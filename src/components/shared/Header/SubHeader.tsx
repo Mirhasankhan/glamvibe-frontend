@@ -1,5 +1,6 @@
 import Container from "@/utils/Container";
 import { Clock, MapPin } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const SubHeader = () => {
@@ -17,11 +18,11 @@ const SubHeader = () => {
               <h1 className="font-medium text-sm text-white">2Mon-Sat: 9am to 6pm</h1>
             </div>
           </div>
-          <div>
-            <button className="bg-primary p-3 text-sm font-medium ">
+          <Link href="/book-appointment">
+            <button className="bg-primary p-3 px-6 text-white text-sm font-medium ">
               Get An Appointment
             </button>
-          </div>
+          </Link>
         </div>
       </Container>
     </div>

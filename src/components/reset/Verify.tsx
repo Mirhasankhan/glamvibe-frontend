@@ -14,9 +14,8 @@ const Verify = ({
   email: string;
 }) => {
   const [code, setCode] = useState(["", "", "", ""]);
-  const [isLoading, setIsLoading] = useState(false);
   const inputRefs = useRef<HTMLInputElement[]>([]);
-  const [verifyOtp] = useVerifyOtpMutation();
+  const [verifyOtp, { isLoading }] = useVerifyOtpMutation();
 
   const handleChange = (index: number, value: string) => {
     if (/^\d?$/.test(value)) {
@@ -41,7 +40,7 @@ const Verify = ({
 
   const handleSubmit = async () => {
     const numberCode = parseInt(code.join(""), 10);
-    setIsLoading(true);
+
     try {
       const response = await verifyOtp({ email, otp: numberCode.toString() });
 
@@ -49,23 +48,19 @@ const Verify = ({
         toast.success(response.data.message);
         Cookies.set("token", response.data.result.accessToken);
         setActive("reset");
-        setIsLoading(false);
       } else if (response.error) {
         if ("data" in response.error) {
           const errorData = response.error.data as { message?: string };
           toast.error(errorData.message || "Something went wrong.");
-          setIsLoading(false);
         } else {
           toast.error("Unexpected error structure.");
-          setIsLoading(false);
         }
       }
     } catch (error) {
       console.log(error);
-      setIsLoading(false);
+
       toast.error("An unexpected error occurred.");
     } finally {
-      setIsLoading(false);
     }
   };
 

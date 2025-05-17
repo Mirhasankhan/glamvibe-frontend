@@ -2,7 +2,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ArrowLeft, LoaderCircle } from "lucide-react";
 import { TLoginValues } from "@/types/common";
-import { useState } from "react";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import { useSendOtpMutation } from "@/redux/features/auth/authApi";
@@ -14,8 +13,7 @@ const ForgetPassword = ({
   setActive: (value: string) => void;
   setEmail: (value: string) => void;
 }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [sendOpt] = useSendOtpMutation();
+  const [sendOpt, { isLoading }] = useSendOtpMutation();
   const {
     register,
     handleSubmit,
@@ -23,31 +21,27 @@ const ForgetPassword = ({
   } = useForm<TLoginValues>();
 
   const onSubmit: SubmitHandler<TLoginValues> = async (data) => {
-    setIsLoading(true);
     try {
       const response = await sendOpt(data);
 
       if (response.data) {
         toast.success(response.data.message);
         setActive("verify");
-        setIsLoading(false);
+
         setEmail(data.email);
       } else if (response.error) {
         if ("data" in response.error) {
           const errorData = response.error.data as { message?: string };
           toast.error(errorData.message || "Something went wrong.");
-          setIsLoading(false);
         } else {
           toast.error("Unexpected error structure.");
-          setIsLoading(false);
         }
       }
     } catch (error) {
       console.log(error);
-      setIsLoading(false);
+
       toast.error("An unexpected error occurred.");
     } finally {
-      setIsLoading(false);
     }
   };
   return (
