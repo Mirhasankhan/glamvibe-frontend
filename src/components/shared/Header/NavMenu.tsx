@@ -24,7 +24,7 @@ const NavMenu = () => {
       </Link>
       <Link className="hover:text-primary" href="/login">Sign In</Link>
       {show && (
-        <div className="absolute top-12 left-20 bg-white pr-12 shadow-md border-t-2 border-primary  p-4 flex flex-col">
+        <div className="z-20 absolute top-12 left-20 bg-white pr-12 shadow-md border-t-2 border-primary  p-4 flex flex-col">
           <Link
             className="hover:text-primary hover:pl-2 border-b pb-2 transition-all duration-800"
             href="/"

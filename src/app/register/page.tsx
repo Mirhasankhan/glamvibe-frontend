@@ -2,7 +2,7 @@
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { LoaderCircle } from "lucide-react";
-import logo from "../../assets/fya2.png";
+import logo from "../../assets/logo1.avif";
 import Image from "next/image";
 import { TLoginValues } from "@/types/common";
 import Link from "next/link";

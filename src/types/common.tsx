@@ -4,3 +4,9 @@ export interface TLoginValues {
     username: string;
     confirmPassword: string
   }
+export interface TService {
+    id: string;
+    serviceName: string;
+    description: string;
+    imageUrls: string[]
+  }

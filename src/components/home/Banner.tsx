@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import image1 from "../../assets/banner2.avif";
-import image2 from "../../assets/banner.jpg";
+import image1 from "../../assets/banner3.avif";
+import image2 from "../../assets/banner4.avif";
 import image3 from "../../assets/banner.avif";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -49,14 +49,14 @@ const Banner = () => {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: "-100%", opacity: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="absolute w-full h-[600px] bg-cover bg-center flex items-center justify-center"
+          className="absolute w-full md:h-[550px] 2xl:h-[800px] bg-cover bg-center flex items-center justify-center"
           style={{ backgroundImage: banners[index].image }}
         >
           <div className="text-white h-full flex flex-col gap-6 items-center justify-center w-full bg-black bg-opacity-50 p-6 rounded-lg text-center">
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+              transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }}
             >
               <p
                 style={{ fontFamily: "Dancing Script" }}
@@ -68,7 +68,7 @@ const Banner = () => {
                 {banners[index].heading}
               </h1>
               <Link href="/book-appointment">
-                <button className="px-4 py-2 bg-primary font-medium border-primary border">
+                <button className="px-4 py-2 bg-primary font-medium border-primary rounded-lg border">
                   {banners[index].buttonText} <ArrowRight className="inline" size={20}></ArrowRight>
                 </button>
               </Link>

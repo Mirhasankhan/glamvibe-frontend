@@ -1,6 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import footerImg from "../../../assets/footer.avif";
-import logo from "../../../assets/fya2.png";
+import logo from "../../../assets/logo1.avif";
 const Footer = () => {
   return (
     <div
@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="bg-[#222a3d] flex flex-col items-center w-full h-full bg-opacity-95 text-white">
         <div className="flex flex-col items-center py-8">
           <div className="flex  items-center gap-1 ">
-            <img src={logo.src} alt="GlamVibe logo" />
+            <img className="h-16" src={logo.src} alt="GlamVibe logo" />
             <div className="text-white">
               <h1 className="text-2xl font-medium">GlamVibe</h1>
               <p>Spa Beauty</p>

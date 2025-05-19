@@ -2,43 +2,45 @@
 import Container from "@/utils/Container";
 import bgImage from "../../assets/service.jpg";
 import Image from "next/image";
-import {  useServicesQuery } from "@/redux/features/services/services.api";
+import { useServicesQuery } from "@/redux/features/services/services.api";
 import Categories from "@/components/services/Categories";
 import { useState } from "react";
+import { TService } from "@/types/common";
+import Card from "@/components/services/Card";
 
 const Services = () => {
-   
-   const [active,setActive] = useState("6814b4255b13a23a1c6be957")
-  const {data: services,isLoading} = useServicesQuery(active)
-  console.log(services);
+  const [active, setActive] = useState("682b475155275c85dc32b417");
+  const { data: services, isLoading } = useServicesQuery(active);
+  console.log(services?.result?.servicesWithAvgRating);
 
-  if(isLoading){
-    return <p>Loading.........</p>
+  if (isLoading) {
+    return <p>Loading.........</p>;
   }
-  
+
   return (
     <div>
       <div
         className="h-[300px] md:h-[400px] 2xl:h-[650px] bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: `url(${bgImage.src})` }}
-      >
-        {/* <Image alt="" height={50} width={50} src={serviceLogo.src}> </Image> */}
-        Services
+      >        
+        {services?.result?.categoryName}
       </div>
       <Container>
         <div className="grid grid-cols-3 gap-8 my-8">
-          <div className="col-span-1 border">
+          <div className="col-span-1">
             <Categories active={active} setActive={setActive}></Categories>
+       
           </div>
           <div className="col-span-2">
             <Image
-              className="w-full h-60 object-cover"
-              height={100}
-              width={100}
-              src={bgImage}
+              height={400}
+              width={600}
+              src={services?.result?.mediaUrl}
               alt=""
             ></Image>
-            <h1 className="text-xl font-semibold py-6">Aroma Therapy</h1>
+            <h1 className="text-xl font-semibold py-6">
+              {services?.result?.categoryName}
+            </h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
               cumque quisquam debitis, amet iusto eveniet aliquid doloribus quae
@@ -51,6 +53,12 @@ const Services = () => {
               nihil reprehenderit molestiae dolore delectus cupiditate beatae!
               Ea ipsam odit architecto! Veniam, accusantium?
             </p>
+            <h1 className="text-xl font-semibold py-4">Available Services</h1>
+            <div className="grid grid-cols-3 gap-4">
+              {services?.result?.servicesWithAvgRating?.map((service:TService) => (
+                <Card service={service} key={service.id}></Card>
+              ))}
+            </div>
           </div>
         </div>
       </Container>
