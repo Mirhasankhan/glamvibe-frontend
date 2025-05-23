@@ -10,3 +10,9 @@ export interface TService {
     description: string;
     imageUrls: string[]
   }
+export interface TCategory {
+    id: string;
+    overview: string;
+    description: string;
+    mediaUrls: string[]
+  }

@@ -11,7 +11,7 @@ const WhyUs = () => {
       <div className="col-span-3">
         <img src={bg2.src} className="w-full h-[600px]" alt="" />
       </div>
-      <div className="bg-primary p-12 absolute left-96 top-16 text-white">
+      <div className="bg-primary p-8 absolute left-96 top-16 text-white">
         <p className="text-2xl italic">Barber</p>
         <h1 className="uppercase text-3xl font-medium pb-3">
           Gentleman Choices
@@ -21,7 +21,7 @@ const WhyUs = () => {
           like a pause button to <br /> just relax, take a breath and restart.I
           t’s a great way to reward yourse lf healthy body & <br /> mind, when
         </p>
-        <div className="pt-5 flex gap-4 items-center">
+        <div className="pt-3 flex gap-4 items-center">
           <div className=" bg-white rounded-full text-primary">
             <IoIosCheckmark size={30} />
           </div>

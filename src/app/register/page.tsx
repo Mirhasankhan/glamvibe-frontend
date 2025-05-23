@@ -85,7 +85,13 @@ const Register = () => {
           <label className="block font-medium">Password</label>
           <input
             type="password"
-            {...register("password", { required: "Password is required" })}
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters long",
+              },
+            })}
             className="w-full p-2 border rounded-md"
             placeholder="Enter password"
           />
@@ -98,11 +104,7 @@ const Register = () => {
           type="submit"
           className="bg-primary text-white py-3 w-full font-medium rounded-md"
         >
-          {isLoading ? (
-            <LoaderCircle className="animate-spin mx-auto"></LoaderCircle>
-          ) : (
-            "Create Account"
-          )}
+          {isLoading ? "Signing Up.." : "Create Account"}
         </button>
       </form>
       <div className="flex items-center justify-center my-4">

@@ -1,5 +1,4 @@
 "use client";
-
 import { useCategoriesQuery } from "@/redux/features/services/services.api";
 
 const Categories = ({
@@ -10,7 +9,7 @@ const Categories = ({
   active: string;
 }) => {
   const { data: categories } = useCategoriesQuery("");
-  console.log(categories);
+
 
   return (
     <div className="border">

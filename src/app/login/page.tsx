@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
 const Login = () => {
-  const [loginUser,{isLoading}] = useLoginMutation();
+  const [loginUser, { isLoading }] = useLoginMutation();
   const router = useRouter();
 
   const {
@@ -27,20 +27,14 @@ const Login = () => {
 
   const onSubmit: SubmitHandler<TLoginValues> = async (data) => {
     try {
-      const response = await loginUser(data);
+      const response: any = await loginUser(data);
 
       if (response.data?.result?.accessToken) {
         toast.success("Login Successful");
         router.push("/");
-
         Cookies.set("token", response.data?.result.accessToken);
       } else if (response.error) {
-        if ("data" in response.error) {
-          const errorData = response.error.data as { message?: string };
-          toast.error(errorData.message || "Something went wrong.");
-        } else {
-          toast.error("Unexpected error structure.");
-        }
+        toast.error(response.error.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -104,11 +98,7 @@ const Login = () => {
           type="submit"
           className="bg-primary text-white py-3 w-full font-medium rounded-md"
         >
-          {isLoading ? (
-            <LoaderCircle className="animate-spin mx-auto"></LoaderCircle>
-          ) : (
-            "Login"
-          )}
+          {isLoading ? "Authenticating..." : "Login"}
         </button>
       </form>
       <div className="flex items-center justify-center my-4">

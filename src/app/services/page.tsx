@@ -11,8 +11,7 @@ import Card from "@/components/services/Card";
 const Services = () => {
   const [active, setActive] = useState("682b475155275c85dc32b417");
   const { data: services, isLoading } = useServicesQuery(active);
-  console.log(services?.result?.servicesWithAvgRating);
-
+  
   if (isLoading) {
     return <p>Loading.........</p>;
   }
