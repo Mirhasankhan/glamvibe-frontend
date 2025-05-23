@@ -1,7 +1,6 @@
 "use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { LoaderCircle } from "lucide-react";
 import logo from "../../assets/logo1.avif";
 import Image from "next/image";
 import { TLoginValues } from "@/types/common";

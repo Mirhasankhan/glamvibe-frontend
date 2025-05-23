@@ -26,8 +26,8 @@ const Categories = ({
 
               <h1
                 className={`${
-                  active == category.id ? " bg-white" : " bg-black"
-                } h-[10px] w-[10px] rounded-full bg-black group-hover:bg-white transition-all duration-300 ease-in-out`}
+                  active == category.id ? " bg-white" : " bg-primary"
+                } h-[10px] w-[10px] rounded-full group-hover:bg-white transition-all duration-300 ease-in-out`}
               ></h1>
             </div>
           </div>
