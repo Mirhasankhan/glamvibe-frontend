@@ -27,7 +27,8 @@ const NewPass = () => {
     }
     setIsLoading(true);
     try {
-      const response = await resetPassword(data.password);
+      console.log(data.password);
+      const response = await resetPassword({newPassword:data.password});
       console.log(response);
 
       if (response.data) {
