@@ -1,6 +1,8 @@
 "use client";
 import Banner from "@/components/home/Banner";
+import Benefits from "@/components/home/Benefits";
 import BestServices from "@/components/home/BestServices";
+import Testimonial from "@/components/home/Testimonial";
 import Welcome from "@/components/home/Welcome";
 import WhyUs from "@/components/home/WhyUs";
 
@@ -14,8 +16,10 @@ const HOmePage = () => {
     <div>
       <Banner></Banner>
       <Welcome></Welcome>  
-      <BestServices></BestServices>    
+      <BestServices></BestServices>  
+      <Benefits></Benefits>  
       <WhyUs></WhyUs>
+      <Testimonial></Testimonial>
       <h1 className="text-4xl text-red-700">Hello</h1>
       <button onClick={() => setTheme("light")}>Light</button>
       <button onClick={() => setTheme("dark")}>Dark</button>
