@@ -44,85 +44,87 @@ const Register = () => {
   };
 
   return (
-    <div className="w-full md:w-1/3 mx-auto  p-2 my-4 dark:text-white">
-      <Image src={logo} alt="" height={40} width={40}></Image>
-      <h1 className="text-xl font-medium ppy-2 ">Create Account</h1>
-      <p className="text-sm">
-        Enter to get unlimited access to data & information
-      </p>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="rounded-lg pt-6 bg-white"
-      >
-        <div className="mb-4">
-          <label className="block font-medium">User Name</label>
-          <input
-            {...register("username", {
-              required: "Username is required",
-            })}
-            className="w-full p-2 border rounded-md"
-            placeholder="Enter your username"
-          />
-          {errors.username && (
-            <p className="text-red-500 text-sm">{errors.username.message}</p>
-          )}
-        </div>
-        <div className="mb-4">
-          <label className="block font-medium">Email</label>
-          <input
-            {...register("email", {
-              required: "Email is required",
-            })}
-            className="w-full p-2 border rounded-md"
-            placeholder="Enter your email"
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm">{errors.email.message}</p>
-          )}
-        </div>
-        <div className="mb-4">
-          <label className="block font-medium">Password</label>
-          <input
-            type="password"
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters long",
-              },
-            })}
-            className="w-full p-2 border rounded-md"
-            placeholder="Enter password"
-          />
-          {errors.password && (
-            <p className="text-red-500 text-sm">{errors.password.message}</p>
-          )}
+    <div className="bg-gradient-to-br from-purple-50 p-2 via-blue-50 to-indigo-100 py-12 h-screen">
+      <div className="w-full md:w-2/4 2xl:w-1/4 shadow-md mx-auto p-6 dark:text-white bg-white rounded-xl">
+        <Image src={logo} alt="" height={60} width={60}></Image>
+        <h1 className="text-xl font-medium ppy-2 ">Create Account</h1>
+        <p className="text-sm">
+          Enter to get unlimited access to data & information
+        </p>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="rounded-lg pt-6 bg-white"
+        >
+          <div className="mb-4">
+            <label className="block font-medium">User Name</label>
+            <input
+              {...register("username", {
+                required: "Username is required",
+              })}
+              className="w-full p-2 border rounded-xl"
+              placeholder="Enter your username"
+            />
+            {errors.username && (
+              <p className="text-red-500 text-sm">{errors.username.message}</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <label className="block font-medium">Email</label>
+            <input
+              {...register("email", {
+                required: "Email is required",
+              })}
+              className="w-full p-2 border rounded-xl"
+              placeholder="Enter your email"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm">{errors.email.message}</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <label className="block font-medium">Password</label>
+            <input
+              type="password"
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters long",
+                },
+              })}
+              className="w-full p-2 border rounded-xl"
+              placeholder="Enter password"
+            />
+            {errors.password && (
+              <p className="text-red-500 text-sm">{errors.password.message}</p>
+            )}
+          </div>
+          <button
+            disabled={isLoading}
+            type="submit"
+            className="bg-primary text-white py-3 w-full font-medium rounded-xl"
+          >
+            {isLoading ? "Signing Up.." : "Create Account"}
+          </button>
+        </form>
+        <div className="flex items-center justify-center my-4">
+          <div className="flex-1 border-t border-gray-300"></div>
+          <span className="px-3 text-gray-500 text-sm">Or, Login with</span>
+          <div className="flex-1 border-t border-gray-300"></div>
         </div>
         <button
           disabled={isLoading}
           type="submit"
-          className="bg-primary text-white py-3 w-full font-medium rounded-md"
+          className="bg-white flex items-center gap-2 justify-center border py-3 w-full rounded-xl"
         >
-          {isLoading ? "Signing Up.." : "Create Account"}
+          <FcGoogle size={20} /> Sign Up With Google
         </button>
-      </form>
-      <div className="flex items-center justify-center my-4">
-        <div className="flex-1 border-t border-gray-300"></div>
-        <span className="px-3 text-gray-500 text-sm">Or, Login with</span>
-        <div className="flex-1 border-t border-gray-300"></div>
-      </div>
-      <button
-        disabled={isLoading}
-        type="submit"
-        className="bg-white flex items-center gap-2 justify-center border py-3 w-full rounded-md"
-      >
-        <FcGoogle size={20} /> Sign Up With Google
-      </button>
-      <div className="text-center pt-2">
-        Already have an account?
-        <Link href="/login" className="text-primary hover:underline">
-          login
-        </Link>
+        <div className="flex pt-2 justify-center">
+          <h1>Already have an account?</h1>
+          <Link href="/login" className="text-primary hover:underline">
+            Login
+          </Link>
+        </div>
       </div>
     </div>
   );

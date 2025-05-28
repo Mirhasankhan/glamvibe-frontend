@@ -97,7 +97,7 @@ const CategoriesStep: React.FC<CategoriesStepProps> = ({
         <button
           onClick={handleNext}
           disabled={!selectedCategory}
-          className="px-6 flex items-center bg-primary text-xl text-white  py-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-6 rounded-xl flex items-center bg-primary text-xl text-white  py-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Next Step          
         </button>

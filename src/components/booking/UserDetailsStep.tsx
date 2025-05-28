@@ -54,7 +54,7 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
             type="text"
             placeholder="Enter your full name"
             {...register("userName", { required: "Name is required" })}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-xl"
           />
           {errors.userName && (
             <p className="text-red-500 text-sm">{errors.userName.message}</p>
@@ -73,7 +73,7 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
                 message: "Please enter a valid email",
               },
             })}
-            className={`w-full p-3 border-2 rounded-lg transition-colors ${
+            className={`w-full p-3 border-2 rounded-xl transition-colors ${
               errors.userEmail
                 ? "border-red-300 focus:border-red-500"
                 : "border-gray-200 focus:border-blue-500"
@@ -82,9 +82,9 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
           {errors.userEmail && (
             <p className="text-red-500 text-sm">{errors.userEmail.message}</p>
           )}
-        </div>      
+        </div>
         <div className="space-y-2">
-             <label className="block font-medium">Phone Number</label>
+          <label className="block font-medium">Phone Number</label>
           <input
             id="userPhone"
             type="tel"
@@ -110,7 +110,7 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
         <div className="pt-6">
           <button
             type="submit"
-            className="px-6 items-center bg-primary text-xl text-white py-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 rounded-xl items-center bg-primary text-xl text-white py-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Continue to Summary
           </button>

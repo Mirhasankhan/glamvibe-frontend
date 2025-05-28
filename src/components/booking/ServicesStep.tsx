@@ -100,7 +100,7 @@ const ServicesStep: React.FC<ServicesStepProps> = ({
         <button
           onClick={handleNext}
           disabled={!selectedService}
-          className="px-6 items-center bg-primary text-xl text-white  py-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-6 rounded-xl items-center bg-primary text-xl text-white  py-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Next Step
         </button>
