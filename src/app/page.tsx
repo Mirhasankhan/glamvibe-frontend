@@ -2,6 +2,7 @@
 import Banner from "@/components/home/Banner";
 import Benefits from "@/components/home/Benefits";
 import BestServices from "@/components/home/BestServices";
+import Experts from "@/components/home/Experts";
 import Testimonial from "@/components/home/Testimonial";
 // import Welcome from "@/components/home/Welcome";
 import WhyUs from "@/components/home/WhyUs";
@@ -15,6 +16,7 @@ const HOmePage = () => {
   return (
     <div>
       <Banner></Banner>
+      <Experts></Experts>
       {/* <Welcome></Welcome>   */}
       <BestServices></BestServices>  
       <Benefits></Benefits>  

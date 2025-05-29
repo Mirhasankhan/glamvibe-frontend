@@ -45,7 +45,7 @@ const Register = () => {
 
   return (
     <div className="bg-gradient-to-br from-purple-50 p-2 via-blue-50 to-indigo-100 py-12 min-h-screen">
-      <div className="w-full md:w-2/4 2xl:w-1/4 shadow-md mx-auto p-6 dark:text-white bg-white rounded-xl">
+      <div className="w-full md:w-2/5 2xl:w-1/4 shadow-md mx-auto p-6 dark:text-white bg-white rounded-xl">
         <Image src={logo} alt="" height={60} width={60}></Image>
         <h1 className="text-xl font-medium ppy-2 ">Create Account</h1>
         <p className="text-sm">
@@ -56,20 +56,20 @@ const Register = () => {
           className="rounded-lg pt-6 bg-white"
         >
           <div className="mb-4">
-            <label className="block font-medium">User Name</label>
+            <label className="block pb-1 font-medium">Full Name</label>
             <input
               {...register("username", {
-                required: "Username is required",
+                required: "Full name is required",
               })}
               className="w-full p-2 border rounded-xl"
-              placeholder="Enter your username"
+              placeholder="Enter your fullname"
             />
             {errors.username && (
               <p className="text-red-500 text-sm">{errors.username.message}</p>
             )}
           </div>
           <div className="mb-4">
-            <label className="block font-medium">Email</label>
+            <label className="block pb-1 font-medium">Email</label>
             <input
               {...register("email", {
                 required: "Email is required",
@@ -82,7 +82,7 @@ const Register = () => {
             )}
           </div>
           <div className="mb-4">
-            <label className="block font-medium">Password</label>
+            <label className="block pb-1 font-medium">Password</label>
             <input
               type="password"
               {...register("password", {
