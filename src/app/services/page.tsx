@@ -53,7 +53,7 @@ const Services = () => {
               Ea ipsam odit architecto! Veniam, accusantium?
             </p>
             <h1 className="text-xl font-semibold py-4">Available Services</h1>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-8">
               {services?.result?.servicesWithAvgRating?.map((service:TService) => (
                 <Card service={service} key={service.id}></Card>
               ))}

@@ -6,9 +6,11 @@ import discount from "../../assets/discount.png";
 import { motion } from "framer-motion";
 
 const Benefits = () => {
+
   return (
-    <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center py-12">
+   <div className=" py-12 bg-gradient-to-br from-purple-50  via-blue-50 to-indigo-100">
+     <Container>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white items-center">
         {/* Left image column with motion */}
         <motion.div
           initial={{ y: -100, opacity: 0 }}
@@ -66,6 +68,7 @@ const Benefits = () => {
         </motion.div>
       </div>
     </Container>
+   </div>
   );
 };
 

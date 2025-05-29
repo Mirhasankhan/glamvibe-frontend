@@ -8,6 +8,7 @@ export interface TService {
     id: string;
     serviceName: string;
     description: string;
+    price: number
     imageUrls: string[]
   }
 export interface TCategory {

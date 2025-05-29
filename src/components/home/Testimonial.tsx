@@ -1,117 +1,121 @@
-"use client";
 import Container from "@/utils/Container";
-import img1 from "../../assets/testimonial-4-1.jpg";
-import img2 from "../../assets/js.jpg";
-import { Quote } from "lucide-react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa6";
-import { useState } from "react";
+import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
+import img1 from "../../assets/image2.jpeg";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Hoque",
-    title: "Actress & Model",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, quam sunt aliquid ipsum consequuntur nesciunt repellendus...",
-    image: img2.src,
+    id: 1,
+    text: "Amazing service! Highly recommend to everyone. Amazing service! Highly recommend to everyone. service! Highly recommend to everyone.",
+    img: img1,
   },
   {
-    name: "Mizan Rahman",
-    title: "Fashion Photographer",
-    text: "Cupiditate placeat similique consectetur voluptates quam labore, corporis nobis accusantium possimus, ipsam facilis, dolor ratione.",
-    image: img2.src,
+    id: 2,
+    text: "sdfdsfsdf service! Highly recommend to everyone. Amazing service! Highly recommend to everyone. service! Highly recommend to everyone.",
+    img: img1,
   },
   {
-    name: "Nasima Akter",
-    title: "Influencer",
-    text: "Quidem, accusantium ut a porro rerum voluptate id ducimus eos impedit iure officia possimus harum placeat nihil.",
-    image: img2.src,
+    id: 3,
+    text: "Ahell hlkl hly recommend to everyone. Amazing service! Highly recommend to everyone. service! Highly recommend to everyone.",
+    img: img1,
+  },
+  {
+    id: 4,
+    text: "mm[ sd5dfsd5f8] recommend to everyone. Amazing service! Highly recommend to everyone. service! Highly recommend to everyone.",
+    img: img1,
+  },
+  {
+    id: 5,
+    text: "ly recommend Amazing service! High to everyone. Amazing service! Highly recommend to everyone. service! Highly recommend to everyone.",
+    img: img1,
+  },
+  {
+    id: 6,
+    text: "Top-notch service with professional staff.",
+    img: img1,
   },
 ];
 
 const Testimonial = () => {
-  const [index, setIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
 
-  const next = () => {
-    setIndex((prev) => (prev + 1) % testimonials.length);
+  const handleNext = () => {
+    setStartIndex((prev) => (prev + 1) % testimonials.length);
   };
 
-  const prev = () => {
-    setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const handlePrev = () => {
+    setStartIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
+  const getCurrentTestimonials = () => {
+    const result = [];
+    for (let i = 0; i < 3; i++) {
+      result.push(testimonials[(startIndex + i) % testimonials.length]);
+    }
+    return result;
   };
 
   return (
-    <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center my-12">
-        {/* Left Side Image */}
-        <div>
-          <img src={img1.src} alt="Testimonial Visual" className="w-full rounded-xl" />
-        </div>
-
-        {/* Right Side Testimonial */}
-        <div>
-          <h2 className="text-primary text-xl">Our Testimonials</h2>
-          <h1 className="text-4xl font-medium py-3">What People Talk About Us</h1>
-
-          {/* Carousel Viewport */}
-          <div className="relative w-full overflow-hidden">
-            <div className="w-[370px] md:w-[580px] overflow-hidden">
-              <motion.div
-                className="flex"
-                animate={{ x: `-${index * 82}%` }}
-                transition={{ type: "spring", stiffness: 80 }}
-                style={{ gap: "1.5rem" }}
-              >
-                {testimonials.map((t, i) => (
-                  <div
-                    key={i}
-                    className="min-w-[82%] max-w-[82%] bg-white border p-6 rounded-lg shadow"
-                  >
-                    <div className="flex justify-between items-center">
-                      <div className="flex text-primary gap-2">
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaStar className="text-gray-700" />
-                      </div>
-                      <Quote size={32} />
-                    </div>
-                    <p className="py-4 text-gray-700 text-sm md:text-base">{t.text}</p>
-                    <div className="flex justify-between items-center pt-2">
-                      <div>
-                        <h1 className="font-medium text-lg md:text-xl pb-1">{t.name}</h1>
-                        <p className="text-sm text-gray-500">{t.title}</p>
-                      </div>
-                      <img
-                        className="h-14 w-14 md:h-16 md:w-16 rounded-full object-cover"
-                        src={t.image}
-                        alt={t.name}
-                      />
-                    </div>
+    <div className="py-20 bg-gradient-to-br from-purple-50 p-2 via-blue-50 to-indigo-100">
+      <Container>
+        <h1 className="text-center text-4xl font-medium pb-16">Our Testimonials</h1>
+        <div className="relative ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <AnimatePresence mode="popLayout">
+              {getCurrentTestimonials().map((item) => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -50 }}
+                  transition={{ duration: 0.5 }}
+                  className="border p-4 relative rounded-xl bg-white shadow"
+                >
+                  <div className="flex justify-between">
+                    <BiSolidQuoteAltLeft size={50} className="text-primary" />
+                    <BiSolidQuoteAltRight size={50} className="text-primary" />
                   </div>
-                ))}
-              </motion.div>
-            </div>
+                  <p className="text-center py-6 text-sm">{item.text}</p>
+                  <div className="flex justify-center gap-2 text-orange-400">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} />
+                    ))}
+                  </div>
+                  <div className="absolute h-24 w-24 -top-8 left-1/2 transform -translate-x-1/2 rounded-full border-[4px] border-primary overflow-hidden bg-white">
+                    <img
+                      className="w-full h-full object-cover"
+                      src={item.img.src}
+                      alt="user"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="flex justify-start gap-4 mt-6">
+          <div className="flex justify-center mt-10 gap-6">
             <button
-              onClick={prev}
-              className="bg-primary text-white px-4 py-2 rounded hover:bg-opacity-90 transition"
+              onClick={handlePrev}
+              className="bg-primary text-white px-4 py-2 rounded shadow"
             >
-              Previous
+              <ChevronLeft></ChevronLeft>
             </button>
             <button
-              onClick={next}
-              className="bg-primary text-white px-4 py-2 rounded hover:bg-opacity-90 transition"
+              onClick={handleNext}
+              className="bg-primary text-white px-4 py-2 rounded shadow"
             >
-              Next
+              <ChevronRight></ChevronRight>
             </button>
           </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 
