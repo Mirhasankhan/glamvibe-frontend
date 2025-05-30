@@ -17,3 +17,9 @@ export interface TCategory {
     description: string;
     mediaUrls: string[]
   }
+export interface TExprt {
+    id: string;
+    name: string;
+    imageUrl: string;
+    category: {categoryName:string}
+  }

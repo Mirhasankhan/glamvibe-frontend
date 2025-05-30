@@ -61,7 +61,7 @@ const Testimonial = () => {
   };
 
   return (
-    <div className="py-20 bg-gradient-to-br from-purple-50 p-2 via-blue-50 to-indigo-100">
+    <div className="py-12">
       <Container>
         <h1 className="text-center text-4xl font-medium pb-16">Our Testimonials</h1>
         <div className="relative ">

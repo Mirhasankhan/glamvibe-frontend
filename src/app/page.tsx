@@ -16,12 +16,13 @@ const HOmePage = () => {
   return (
     <div>
       <Banner></Banner>
-      <Experts></Experts>
+   
       {/* <Welcome></Welcome>   */}
       <BestServices></BestServices>  
       <Benefits></Benefits>  
       <WhyUs></WhyUs>
       <Testimonial></Testimonial>
+         <Experts></Experts>
       <h1 className="text-4xl text-red-700">Hello</h1>
       <button onClick={() => setTheme("light")}>Light</button>
       <button onClick={() => setTheme("dark")}>Dark</button>
