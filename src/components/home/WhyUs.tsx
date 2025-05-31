@@ -1,49 +1,32 @@
-import bg1 from "../../assets/image1.avif";
-import bg2 from "../../assets/image2.avif";
-import { IoIosCheckmark } from "react-icons/io";
+import bg1 from "../../assets/about.avif";
+import { ImCheckmark } from "react-icons/im";
 
 const WhyUs = () => {
   return (
-    <div className="grid grid-cols-5 relative">
-      <div className="col-span-2">
-        <img src={bg1.src} className="w-full h-[600px]" alt="" />
-      </div>
-      <div className="col-span-3">
-        <img src={bg2.src} className="w-full h-[600px]" alt="" />
-      </div>
-      <div className="bg-primary p-8 absolute left-96 top-16 text-white">
-        <p className="text-2xl italic">Barber</p>
-        <h1 className="uppercase text-3xl font-medium pb-3">
-          Gentleman Choices
-        </h1>
-        <p>
-          Getting a bit of pampering is a way to escape from reality for a bit,
-          like a pause button to <br /> just relax, take a breath and restart.I
-          t’s a great way to reward yourse lf healthy body & <br /> mind, when
-        </p>
-        <div className="pt-3 flex gap-4 items-center">
-          <div className=" bg-white rounded-full text-primary">
-            <IoIosCheckmark size={30} />
+    <div
+      className="h-[200px] md:h-[200px] 2xl:h-[750px] bg-cover bg-center flex"
+      style={{ backgroundImage: `url(${bg1.src})` }}
+    >
+      <div className="h-full w-1/2 bg-black bg-opacity-60 flex justify-center items-center">
+        <div className="flex flex-col gap-4 w-fit text-left">
+          <h1 className="text-xl uppercase text-primary font-semibold">
+            Get Our Services
+          </h1>
+          <h1 className="text-5xl pb-6 font-semibold text-white leading-snug">
+            Get An Incredible Spa <br /> Experience with Glamvibe <br /> Spa
+            Center
+          </h1>
+          <div className="flex text-white items-center gap-1 font-medium">
+            <ImCheckmark />
+            <p>5+ Years Of Experience In Beauty Services</p>
           </div>
-          <div className=" border-b py-5">
-            <h1 className="text-xl">Friendly Behaviour</h1>
-            <p>
-              Warmly welcome clients for experience in terms of quality Hair &
-              Skin services in <br /> comfort environment.
-            </p>
+          <div className="flex text-white items-center gap-1 font-medium">
+            <ImCheckmark />
+            <p>We Have Experienced Team Members</p>
           </div>
-        </div>
-        <div className="pt-5 flex gap-4 items-center">
-          <div className=" bg-white rounded-full text-primary">
-            <IoIosCheckmark size={30} />
-          </div>
-          <div>
-            <h1 className="text-xl">Always Customer Support</h1>
-            <p>
-              Our commitment is to always try to master the art of exemplary
-              services & <br /> experience; with excellence works.
-            </p>
-          </div>
+          <button className="bg-primary text-white rounded-xl px-6 py-2 w-fit">
+            Book Appointment
+          </button>
         </div>
       </div>
     </div>

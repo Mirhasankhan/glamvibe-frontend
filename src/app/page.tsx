@@ -4,7 +4,7 @@ import Benefits from "@/components/home/Benefits";
 import BestServices from "@/components/home/BestServices";
 import Experts from "@/components/home/Experts";
 import Testimonial from "@/components/home/Testimonial";
-// import Welcome from "@/components/home/Welcome";
+import Welcome from "@/components/home/Welcome";
 import WhyUs from "@/components/home/WhyUs";
 
 
@@ -17,7 +17,7 @@ const HOmePage = () => {
     <div>
       <Banner></Banner>
    
-      {/* <Welcome></Welcome>   */}
+      <Welcome></Welcome>  
       <BestServices></BestServices>  
       <Benefits></Benefits>  
       <WhyUs></WhyUs>
