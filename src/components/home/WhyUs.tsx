@@ -4,7 +4,7 @@ import { ImCheckmark } from "react-icons/im";
 const WhyUs = () => {
   return (
     <div
-      className="h-[200px] md:h-[200px] 2xl:h-[750px] bg-cover bg-center flex"
+      className="h-[200px] md:h-[500px] 2xl:h-[750px] bg-cover bg-center flex"
       style={{ backgroundImage: `url(${bg1.src})` }}
     >
       <div className="h-full w-1/2 bg-black bg-opacity-60 flex justify-center items-center">

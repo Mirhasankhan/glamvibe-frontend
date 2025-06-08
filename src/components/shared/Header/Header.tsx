@@ -8,7 +8,7 @@ const Header = () => {
       <Container>
         <div className="flex justify-between items-center py-1">
           <div className="flex items-center gap-1">
-            <img className="h-20 w-20 rounded-full" src={logo.src} alt="GlamVibe logo" />
+            <img className="h-16 w-16 rounded-full" src={logo.src} alt="GlamVibe logo" />
             <div className="dark:text-black">
               <h1 className="text-2xl font-medium">GlamVibe</h1>
               <p>Spa Beauty</p>
