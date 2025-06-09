@@ -10,9 +10,12 @@ import Card from "@/components/services/Card";
 import Expert from "@/components/shared/Expert";
 import { useExpertsQuery } from "@/redux/features/career/career.api";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 const Services = () => {
-  const [active, setActive] = useState("682b475155275c85dc32b417");
+  const params = useSearchParams();
+  const category = params.get("category");  
+  const [active, setActive] = useState(category || "682b475155275c85dc32b417");
   const { data: allExperts } = useExpertsQuery(active);
   const { data: services, isLoading } = useServicesQuery(active);
 

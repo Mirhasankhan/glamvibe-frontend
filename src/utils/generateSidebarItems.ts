@@ -1,7 +1,5 @@
 import { SidbarItem, TRoles, userRoles } from "@/types/common";
-
-import { MdDashboard } from "react-icons/md";
-
+import { SquareChartGantt,BookmarkPlus,Heart, Settings } from "lucide-react";
 
 export const sidebarItems = (role: TRoles): SidbarItem[] => {
   const roleMenus: SidbarItem[] = [];
@@ -9,29 +7,24 @@ export const sidebarItems = (role: TRoles): SidbarItem[] => {
   switch (role) {
     case userRoles.USER:
       roleMenus.push({
-        title: "Profile Details",
+        title: "Manage Profile",
         path: `profile/overview`,
-        icon: MdDashboard,
-      });
-      roleMenus.push({
-        title: "Update Profile",
-        path: `profile/update`,
-        icon: MdDashboard,
-      });
+        icon: SquareChartGantt ,
+      });    
       roleMenus.push({
         title: "My Appoinments",
         path: `profile/appoinments`,
-        icon: MdDashboard,
+        icon: BookmarkPlus,
       });
       roleMenus.push({
         title: "Favourite Services",
         path: `profile/favourite`,
-        icon: MdDashboard,
+        icon: Heart,
       });
       roleMenus.push({
         title: "Settings",
         path: `profile/settings`,
-        icon: MdDashboard,
+        icon: Settings,
       });
 
       break;

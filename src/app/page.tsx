@@ -7,7 +7,6 @@ import Testimonial from "@/components/home/Testimonial";
 import Welcome from "@/components/home/Welcome";
 import WhyUs from "@/components/home/WhyUs";
 
-
 import { useTheme } from "next-themes";
 
 const HOmePage = () => {
@@ -16,13 +15,12 @@ const HOmePage = () => {
   return (
     <div>
       <Banner></Banner>
-   
-      <Welcome></Welcome>  
-      <BestServices></BestServices>  
-      <Benefits></Benefits>  
+      <BestServices></BestServices>
+      <Benefits></Benefits>
       <WhyUs></WhyUs>
+      <Welcome></Welcome>
       <Testimonial></Testimonial>
-         <Experts></Experts>
+      <Experts></Experts>
       <h1 className="text-4xl text-red-700">Hello</h1>
       <button onClick={() => setTheme("light")}>Light</button>
       <button onClick={() => setTheme("dark")}>Dark</button>

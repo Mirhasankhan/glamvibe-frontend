@@ -13,10 +13,13 @@ import { useRouter } from "next/navigation";
 import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
+import { useAppDispatch } from "@/redux/hooks";
+import { setUser } from "@/redux/features/auth/authSlice";
 
 const Login = () => {
   const [loginUser, { isLoading }] = useLoginMutation();
   const router = useRouter();
+    const dispatch = useAppDispatch();
 
   const {
     register,
@@ -31,6 +34,14 @@ const Login = () => {
       if (response.data?.result?.accessToken) {
         toast.success("Login Successful");
         router.push("/");
+          dispatch(
+        setUser({
+          name: response.data.result.userInfo.username,
+          email: response.data.result.userInfo.email,
+          role: response.data.result.userInfo.role,
+          token: response.data.result.accessToken,
+        })
+      );
         Cookies.set("token", response.data?.result.accessToken);
       } else if (response.error) {
         toast.error(response.error.data.message);

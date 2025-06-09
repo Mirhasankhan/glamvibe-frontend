@@ -1,18 +1,17 @@
 import { IconType } from "react-icons";
 
 export const userRoles = {
-USER: "user"
-
-}
+  USER: "user",
+};
 export type TRoles = keyof typeof userRoles;
 
 export interface TLoginValues {
-    email: string;
-    password: string;
-    username: string;
-    confirmPassword: string
-  }
-  export interface SidbarItem {
+  email: string;
+  password: string;
+  username: string;
+  confirmPassword: string;
+}
+export interface SidbarItem {
   title: string;
   path: string;
   parentPath?: string;
@@ -20,21 +19,30 @@ export interface TLoginValues {
   icon?: IconType;
 }
 export interface TService {
-    id: string;
-    serviceName: string;
-    description: string;
-    price: number
-    imageUrls: string[]
-  }
+  id: string;
+  serviceName: string;
+  description: string;
+  price: number;
+  imageUrls: string[];
+}
 export interface TCategory {
-    id: string;
-    overview: string;
-    description: string;
-    mediaUrls: string[]
-  }
+  id: string;
+  overview: string;
+  description: string;
+  mediaUrls: string[];
+}
 export interface TExprt {
-    id: string;
-    name: string;
-    imageUrl: string;
-    category: {categoryName:string}
-  }
+  id: string;
+  name: string;
+  imageUrl: string;
+  category: { categoryName: string };
+}
+
+export interface IFormInput {
+  oldPassword: string;
+  newPassword: string;
+  confirm: string;
+  username: string;
+  phone: string;
+  address: string;
+}
