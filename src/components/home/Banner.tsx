@@ -4,7 +4,6 @@ import image1 from "../../assets/banner3.avif";
 import image2 from "../../assets/banner4.avif";
 import image3 from "../../assets/banner.avif";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 const banners = [
   {
@@ -59,8 +58,11 @@ const Banner = () => {
               transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }}
             >
               <p
-                style={{ fontFamily: "Dancing Script" }}
-                className="italic text-primary text-3xl"
+                style={{
+                  fontFamily: "'Satisfy', cursive"
+                  
+                }}
+                className="text-primary text-2xl"
               >
                 {banners[index].subHeading}
               </p>
@@ -69,7 +71,8 @@ const Banner = () => {
               </h1>
               <Link href="/book-appointment">
                 <button className="px-4 py-2 bg-primary font-medium border-primary rounded-lg border">
-                  {banners[index].buttonText} <ArrowRight className="inline" size={20}></ArrowRight>
+                  {banners[index].buttonText}{" "}
+                 
                 </button>
               </Link>
             </motion.div>

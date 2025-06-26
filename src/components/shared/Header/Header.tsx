@@ -1,5 +1,5 @@
 import Container from "@/utils/Container";
-import logo from "../../../assets/logo1.avif";
+import logo from "../../../assets/logo9.png";
 import NavMenu from "./NavMenu";
 
 const Header = () => {
