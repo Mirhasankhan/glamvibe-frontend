@@ -17,7 +17,7 @@ interface BookingData {
   timeSlot: string;
   userName: string;
   userEmail: string;
-  userPhone: string;
+  phone: string;
   price: number;
 }
 
@@ -127,7 +127,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
               <div>
                 <p className="text-sm text-gray-600">Phone</p>
                 <p className="font-medium text-gray-800">
-                  {bookingData.userPhone}
+                  {bookingData.phone}
                 </p>
               </div>
             </div>

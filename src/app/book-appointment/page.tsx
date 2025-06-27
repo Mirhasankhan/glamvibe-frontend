@@ -16,7 +16,7 @@ interface BookingData {
   timeSlot: string;
   userName: string;
   userEmail: string;
-  userPhone: string;
+  phone: string;
   price: number;
 }
 
@@ -29,7 +29,7 @@ const BookAppointment = () => {
     timeSlot: '',
     userName: '',
     userEmail: '',
-    userPhone: '',
+    phone: '',
     price: 0
   });
 

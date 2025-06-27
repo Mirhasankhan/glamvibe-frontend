@@ -1,4 +1,5 @@
-import React from "react";
+
+import { JWTDecode } from "@/utils/jwt";
 import { useForm } from "react-hook-form";
 
 interface UserDetailsStepProps {
@@ -6,7 +7,7 @@ interface UserDetailsStepProps {
   onSubmit: (userDetails: {
     userName: string;
     userEmail: string;
-    userPhone: string;
+    phone: string;
   }) => void;
 }
 
@@ -21,13 +22,14 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
   } = useForm<{
     userName: string;
     userEmail: string;
-    userPhone: string;
+    phone: string;
   }>();
+  const {decoded} = JWTDecode()
 
   const handleFormSubmit = (data: {
     userName: string;
     userEmail: string;
-    userPhone: string;
+    phone: string;
   }) => {
     onSubmit(data);
     onNext();
@@ -50,28 +52,26 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
         <div className="space-y-2">
           <label className="block font-medium">Full Name</label>
           <input
+         
             id="userName"
             type="text"
             placeholder="Enter your full name"
-            {...register("userName", { required: "Name is required" })}
+            defaultValue={decoded?.userName}
+            {...register("userName")}
             className="w-full p-2 border rounded-xl"
           />
-          {errors.userName && (
-            <p className="text-red-500 text-sm">{errors.userName.message}</p>
-          )}
+         
         </div>
         <div className="space-y-2">
           <label className="block font-medium">Email</label>
           <input
             id="userEmail"
             type="email"
-            placeholder="Enter your email address"
+             defaultValue={decoded?.email}
+            readOnly
             {...register("userEmail", {
-              required: "Email is required",
-              pattern: {
-                value: /\S+@\S+\.\S+/,
-                message: "Please enter a valid email",
-              },
+              required: "Email is required"
+             
             })}
             className={`w-full p-3 border-2 rounded-xl transition-colors ${
               errors.userEmail
@@ -86,10 +86,10 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
         <div className="space-y-2">
           <label className="block font-medium">Phone Number</label>
           <input
-            id="userPhone"
+            id="phone"
             type="tel"
             placeholder="Enter your phone number"
-            {...register("userPhone", {
+            {...register("phone", {
               required: "Phone number is required",
               pattern: {
                 value: /^\d{10}$/,
@@ -97,13 +97,13 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
               },
             })}
             className={`w-full p-3 border-2 rounded-lg transition-colors ${
-              errors.userPhone
+              errors.phone
                 ? "border-red-300 focus:border-red-500"
                 : "border-gray-200 focus:border-blue-500"
             }`}
           />
-          {errors.userPhone && (
-            <p className="text-red-500 text-sm">{errors.userPhone.message}</p>
+          {errors.phone && (
+            <p className="text-red-500 text-sm">{errors.phone.message}</p>
           )}
         </div>
 
