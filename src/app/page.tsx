@@ -5,7 +5,7 @@ import BestServices from "@/components/home/BestServices";
 import Experts from "@/components/home/Experts";
 import Services from "@/components/home/Services";
 import Testimonial from "@/components/home/Testimonial";
-import Welcome from "@/components/home/Welcome";
+// import Welcome from "@/components/home/Welcome";
 import WhyUs from "@/components/home/WhyUs";
 
 import { useTheme } from "next-themes";
