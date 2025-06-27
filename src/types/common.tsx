@@ -11,6 +11,17 @@ export interface TLoginValues {
   username: string;
   confirmPassword: string;
 }
+
+export interface BookingData {
+  category: string;
+  service: string;
+  date: string;
+  timeSlot: string;
+  userName: string;
+  userEmail: string;
+  phone: string;
+  price: number;
+}
 export interface SidbarItem {
   title: string;
   path: string;

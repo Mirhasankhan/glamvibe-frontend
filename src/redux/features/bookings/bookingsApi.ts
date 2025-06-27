@@ -9,6 +9,14 @@ const bookingsApi = baseApi.injectEndpoints({
       }),
       providesTags: ["users"],
     }),
+    createBooking: builder.mutation({
+      query: (data) => ({
+        url: `/booking/create`,
+        method: "POST",
+        body: data
+      }),
+      invalidatesTags: ["users"],
+    }),
     topOwners: builder.query({
       query: () => ({
         url: `/analysis/top-owner`,
@@ -54,4 +62,5 @@ export const {
   useRecentBookingQuery,
   useCancellationsQuery,
   useRevenueQuery,
+  useCreateBookingMutation
 } = bookingsApi;

@@ -1,4 +1,6 @@
-import React from "react";
+"use client"
+import { useCreateBookingMutation } from "@/redux/features/bookings/bookingsApi";
+import { BookingData } from "@/types/common";
 import {
   Check,
   Calendar,
@@ -7,26 +9,28 @@ import {
   Mail,
   Phone,
   DollarSign,
+  Loader2,
 } from "lucide-react";
 import { toast } from "react-toastify";
 
-interface BookingData {
-  category: string;
-  service: string;
-  date: string;
-  timeSlot: string;
-  userName: string;
-  userEmail: string;
-  phone: string;
-  price: number;
-}
 
 interface SummaryStepProps {
   bookingData: BookingData;
 }
 
 const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
-  const handleConfirmBooking = () => {
+  const [createBooking, {isLoading}] = useCreateBookingMutation()
+  const handleConfirmBooking = async() => {
+    const boking = {
+      serviceId: bookingData?.service,
+      price: bookingData?.price,
+      date: bookingData?.date, 
+      startTime: bookingData?.timeSlot,
+      phone: bookingData?.phone
+    }
+    const response = await createBooking(boking)
+
+    console.log(response);
     toast.success("Booking Confired");
   };
   console.log(bookingData);
@@ -153,7 +157,9 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
           onClick={handleConfirmBooking}
           className="w-full bg-primary py-3 rounded-full text-white"
         >
-          Go To Payment
+          {
+            isLoading ? <Loader2 className="animate-spin mx-auto"></Loader2> : "Go To Payment"
+          }
         </button>
       </div>
 
