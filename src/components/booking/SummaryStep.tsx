@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useCreateBookingMutation } from "@/redux/features/bookings/bookingsApi";
 import { BookingData } from "@/types/common";
 import {
@@ -11,27 +11,28 @@ import {
   DollarSign,
   Loader2,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-
 
 interface SummaryStepProps {
   bookingData: BookingData;
 }
 
 const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
-  const [createBooking, {isLoading}] = useCreateBookingMutation()
-  const handleConfirmBooking = async() => {
+  const router = useRouter();
+  const [createBooking, { isLoading }] = useCreateBookingMutation();
+  const handleConfirmBooking = async () => {
     const boking = {
       serviceId: bookingData?.service,
       price: bookingData?.price,
-      date: bookingData?.date, 
+      date: bookingData?.date,
       startTime: bookingData?.timeSlot,
-      phone: bookingData?.phone
-    }
-    const response = await createBooking(boking)
+      phone: bookingData?.phone,
+    };
+    await createBooking(boking);
 
-    console.log(response);
-    toast.success("Booking Confired");
+    router.push("/");
+    toast.success("Booking Confirmed");
   };
   console.log(bookingData);
 
@@ -59,7 +60,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
         </p>
       </div>
 
-      <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 space-y-6"> 
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 space-y-6">
         <div className="bg-white rounded-xl p-6 space-y-4">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Service Details
@@ -75,7 +76,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
               <p className="font-medium text-gray-800">Service Asbe</p>
             </div>
           </div>
-        </div>      
+        </div>
         <div className="bg-white rounded-xl p-6 space-y-4">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Date & Time
@@ -130,9 +131,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
               <Phone className="text-blue-600" size={20} />
               <div>
                 <p className="text-sm text-gray-600">Phone</p>
-                <p className="font-medium text-gray-800">
-                  {bookingData.phone}
-                </p>
+                <p className="font-medium text-gray-800">{bookingData.phone}</p>
               </div>
             </div>
           </div>
@@ -157,9 +156,11 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
           onClick={handleConfirmBooking}
           className="w-full bg-primary py-3 rounded-full text-white"
         >
-          {
-            isLoading ? <Loader2 className="animate-spin mx-auto"></Loader2> : "Go To Payment"
-          }
+          {isLoading ? (
+            <Loader2 className="animate-spin mx-auto"></Loader2>
+          ) : (
+            "Go To Payment"
+          )}
         </button>
       </div>
 

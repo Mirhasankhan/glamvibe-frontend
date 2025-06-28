@@ -34,6 +34,10 @@ export interface TService {
   serviceName: string;
   description: string;
   price: number;
+  status:string;
+  date:string
+  startTime:string
+  service: {serviceName:string}
   imageUrls: string[];
 }
 export interface TCategory {
