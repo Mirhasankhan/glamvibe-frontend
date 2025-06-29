@@ -18,7 +18,7 @@ const NavMenu = () => {
         Home
       </Link>
       <Link
-        onMouseOver={() => setShow(!show)}
+        onClick={() => setShow(!show)}
         className="hover:text-primary"
         href="/services"
       >

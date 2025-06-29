@@ -11,7 +11,7 @@ const cardVariants = {
 
 const Services = () => {
   return (
-    <div>
+    <div className="mt-8">
       <div className="flex justify-between">
         <div className="w-full">
           <Image
@@ -27,7 +27,7 @@ const Services = () => {
             className="w-full gap-8 px-12 py-8 flex bg-primary"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
           >
             <div className="flex flex-col text-center items-center">
@@ -54,7 +54,7 @@ const Services = () => {
             className="w-full gap-8 px-12 py-8 flex bg-primary"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
           >
             <div className="flex flex-col text-center items-center">
@@ -85,7 +85,7 @@ const Services = () => {
             className="w-full gap-8 px-12 py-8 flex bg-primary"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
           >
             <div className="flex flex-col text-center items-center">
@@ -112,7 +112,7 @@ const Services = () => {
             className="w-full gap-8 px-12 py-8 flex bg-primary"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
           >
             <div className="flex flex-col text-center items-center">

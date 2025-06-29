@@ -14,11 +14,18 @@ const bookingsApi = baseApi.injectEndpoints({
       query: () => ({
         url: `/category/all`,
         method: "GET",
-      }),      
+      }),
     }),
     services: builder.query({
       query: (id) => ({
         url: `/service/category/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["users"],
+    }),
+    service: builder.query({
+      query: (id) => ({
+        url: `/service/single/${id}`,
         method: "GET",
       }),
       providesTags: ["users"],
@@ -54,4 +61,5 @@ export const {
   useRecentBookingQuery,
   useCancellationsQuery,
   useRevenueQuery,
+  useServiceQuery
 } = bookingsApi;

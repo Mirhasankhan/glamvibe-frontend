@@ -6,7 +6,7 @@ import Container from "@/utils/Container";
 import React, { useState } from "react";
 
 const AppointmentsPage = () => {
-  const [active, setActive] = useState("completed");
+  const [active, setActive] = useState("upcoming");
   return (
     <Container>
       <div className="grid grid-cols-4 gap-6">
