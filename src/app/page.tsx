@@ -16,11 +16,11 @@ const HOmePage = () => {
   return (
     <div>
       <Banner></Banner>
-      <Services></Services>
+  
       <BestServices></BestServices>
       <Benefits></Benefits>
       <WhyUs></WhyUs>
-      {/* <Welcome></Welcome> */}
+    <Services></Services>
       <Testimonial></Testimonial>
       <Experts></Experts>
       <h1 className="text-4xl text-red-700">Hello</h1>
