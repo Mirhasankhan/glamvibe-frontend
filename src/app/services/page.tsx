@@ -44,9 +44,7 @@ const Services = () => {
       <Container>
         <div className="grid grid-cols-3 gap-8 my-8">
           <div className="col-span-1">
-            <div className="sticky top-20">
-              {" "}
-              {/* 🔥 Make it sticky */}
+            <div className="sticky top-20">             
               <Categories active={active} setActive={setActive} />
             </div>
           </div>
