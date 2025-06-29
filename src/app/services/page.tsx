@@ -14,7 +14,7 @@ import { useSearchParams } from "next/navigation";
 
 const Services = () => {
   const params = useSearchParams();
-  const category = params.get("category");  
+  const category = params.get("category");
   const [active, setActive] = useState(category || "682b475155275c85dc32b417");
   const { data: allExperts } = useExpertsQuery(active);
   const { data: services, isLoading } = useServicesQuery(active);
@@ -34,17 +34,21 @@ const Services = () => {
             {services?.result?.categoryName}
           </h1>
           <div className="flex gap-2 mt-2 font-medium">
-            <Link className="text-white" href="/">Home / </Link> 
-            <h1 className="text-primary">
-              {services?.result?.categoryName}
-            </h1>
+            <Link className="text-white" href="/">
+              Home /{" "}
+            </Link>
+            <h1 className="text-primary">{services?.result?.categoryName}</h1>
           </div>
         </div>
       </div>
       <Container>
         <div className="grid grid-cols-3 gap-8 my-8">
           <div className="col-span-1">
-            <Categories active={active} setActive={setActive}></Categories>
+            <div className="sticky top-20">
+              {" "}
+              {/* 🔥 Make it sticky */}
+              <Categories active={active} setActive={setActive} />
+            </div>
           </div>
           <div className="col-span-2">
             <Image
