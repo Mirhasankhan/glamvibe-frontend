@@ -4,7 +4,7 @@ import logo from "../../../assets/logo1.avif";
 const Footer = () => {
   return (
     <div
-      className="h-[450px] md:h-[650px] bg-cover bg-center flex items-center justify-center"
+      className="h-full md:h-[650px] bg-cover bg-center flex items-center justify-center"
       style={{ backgroundImage: `url(${footerImg.src})` }}
     >
       <div className="bg-[#222a3d] flex flex-col items-center w-full h-full bg-opacity-95 text-white">
@@ -30,7 +30,7 @@ const Footer = () => {
             </button>
           </div>
         </div>
-        <div className="flex gap-12 mt-8">
+        <div className="md:flex gap-12 mt-8">
           <div>
             <h1 className="text-xl font-medium pb-3">About Us</h1>
             <p>

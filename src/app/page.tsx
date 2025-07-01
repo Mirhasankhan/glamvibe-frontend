@@ -18,7 +18,7 @@ const HOmePage = () => {
       <Banner></Banner>
   
       <BestServices></BestServices>
-      <Benefits></Benefits>
+      {/* <Benefits></Benefits> */}
       <WhyUs></WhyUs>
     <Services></Services>
       <Testimonial></Testimonial>

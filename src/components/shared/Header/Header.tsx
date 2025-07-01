@@ -1,6 +1,7 @@
 import Container from "@/utils/Container";
 import logo from "../../../assets/logo9.png";
 import NavMenu from "./NavMenu";
+import SmallDeviceMenu from "./SmallDeviceMenu";
 
 const Header = () => {
   return (
@@ -16,6 +17,7 @@ const Header = () => {
           </div>
           <div>
             <NavMenu></NavMenu>
+            <SmallDeviceMenu></SmallDeviceMenu>
           </div>
         </div>
       </Container>

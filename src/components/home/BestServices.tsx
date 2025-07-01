@@ -16,7 +16,7 @@ const BestServices = () => {
         viewport={{ once: false }}
       >
         <h1 className="text-green-400 text-xl italic">Welcome to our</h1>
-        <h1 className="text-5xl font-medium text-primary pb-4">
+        <h1 className="text-2xl md:text-5xl font-medium text-primary pb-4">
           Best Spa Services in Bangladesh
         </h1>
         <Image className="mx-auto py-6" src={arrow} height={24} width={200} alt="sdfs"></Image>

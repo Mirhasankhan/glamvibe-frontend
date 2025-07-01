@@ -13,7 +13,7 @@ const NavMenu = () => {
   const { decoded } = JWTDecode();
 
   return (
-    <div className="relative flex items-center gap-12 dark:text-black text-sm font-medium uppercase">
+    <div className="hidden relative md:flex items-center gap-12 dark:text-black text-sm font-medium uppercase">
       <Link className="hover:text-primary p-2 rounded-lg" href="/">
         Home
       </Link>

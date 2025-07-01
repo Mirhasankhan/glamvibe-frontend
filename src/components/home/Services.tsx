@@ -12,7 +12,7 @@ const cardVariants = {
 const Services = () => {
   return (
     <div className="mt-8">
-      <div className="flex justify-between">
+      <div className="md:flex justify-between">
         <div className="w-full">
           <Image
             className="object-cover h-full 2xl:h-[494px] w-full"
@@ -79,7 +79,7 @@ const Services = () => {
           </motion.div>
         </div>
       </div>
-      <div className="flex justify-between">
+      <div className="md:flex justify-between">
         <div className="w-full text-white">
           <motion.div
             className="w-full gap-8 px-12 py-8 flex bg-primary"
