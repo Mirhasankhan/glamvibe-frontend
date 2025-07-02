@@ -76,9 +76,9 @@ const BookAppointment = () => {
           <p className="text-gray-600 text-lg">Follow the simple steps to schedule your service</p>
         </div>
         
-        <div className="flex gap-8 max-w-6xl mx-auto">
+        <div className="md:flex gap-8 max-w-6xl mx-auto">
           {/* Sidebar Navigation */}
-          <div className="w-80 bg-white rounded-2xl shadow-xl p-6 h-fit sticky top-8">
+          <div className="w-full mb-6 md:w-80 bg-white rounded-2xl shadow-xl p-6 h-fit md:sticky top-8">
             <h2 className="text-xl font-semibold text-gray-800 mb-6">Booking Steps</h2>
             <div className="space-y-4">
               {steps.map((step, index) => {

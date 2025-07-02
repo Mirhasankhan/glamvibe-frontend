@@ -71,7 +71,7 @@ const Services = () => {
               Ea ipsam odit architecto! Veniam, accusantium?
             </p>
             <h1 className="text-xl font-semibold py-4">Available Services</h1>
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
               {services?.result?.servicesWithAvgRating?.map(
                 (service: TService) => (
                   <Card service={service} key={service.id}></Card>
@@ -81,7 +81,7 @@ const Services = () => {
             <h1 className="text-2xl font-medium">
               Our {services?.result?.categoryName} Specialists
             </h1>
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 py-8">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 py-8">
               <Expert experts={allExperts?.result}></Expert>
             </div>
           </div>
