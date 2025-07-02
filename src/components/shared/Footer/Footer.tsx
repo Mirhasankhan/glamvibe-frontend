@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="bg-[#222a3d] flex flex-col items-center w-full h-full bg-opacity-95 text-white">
         <div className="flex flex-col items-center py-8">
           <div className="flex  items-center gap-1 ">
-            <img className="h-16" src={logo.src} alt="GlamVibe logo" />
+            <img className="h-16 rounded-full" src={logo.src} alt="GlamVibe logo" />
             <div className="text-white">
               <h1 className="text-2xl font-medium">GlamVibe</h1>
               <p>Spa Beauty</p>
@@ -46,14 +46,14 @@ const Footer = () => {
           <div>
             <h1 className="text-xl font-medium pb-3">Recent News</h1>
             <div className="flex items-center gap-3">
-              <img src={logo.src} className="h-16 w-16" alt="" />
+              <img src={logo.src} className="h-16 rounded-full w-16" alt="" />
               <div>
                 <p className="text-sm">January 13, 2020</p>
                 <h1>Maintaining Health and Beauty <br /> Through Spas</h1>
               </div>
             </div>
             <div className="flex items-center gap-3 mt-3">
-              <img src={logo.src} className="h-16 w-16" alt="" />
+              <img src={logo.src} className="h-16 rounded-full w-16" alt="" />
               <div>
                 <p className="text-sm">January 13, 2020</p>
                 <h1>Maintaining Health and Beauty <br /> Through Spas</h1>

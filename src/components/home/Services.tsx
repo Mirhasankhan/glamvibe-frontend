@@ -24,7 +24,7 @@ const Services = () => {
         </div>
         <div className="w-full text-white">
           <motion.div
-            className="w-full gap-8 px-12 py-8 flex bg-primary"
+            className="w-full gap-8 px-12 py-8 md:flex bg-primary"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -51,7 +51,7 @@ const Services = () => {
             </div>
           </motion.div>
           <motion.div
-            className="w-full gap-8 px-12 py-8 flex bg-primary"
+            className="w-full gap-8 px-12 py-8 md:flex bg-primary"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -82,7 +82,7 @@ const Services = () => {
       <div className="md:flex justify-between">
         <div className="w-full text-white">
           <motion.div
-            className="w-full gap-8 px-12 py-8 flex bg-primary"
+            className="w-full gap-8 px-12 py-8 md:flex bg-primary"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -109,7 +109,7 @@ const Services = () => {
             </div>
           </motion.div>
           <motion.div
-            className="w-full gap-8 px-12 py-8 flex bg-primary"
+            className="w-full gap-8 px-12 py-8 md:flex bg-primary"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}

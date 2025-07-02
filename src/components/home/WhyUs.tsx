@@ -5,10 +5,10 @@ import { ImCheckmark } from "react-icons/im";
 const WhyUs = () => {
   return (
     <div
-      className="h-[260px] md:h-[500px] 2xl:h-[750px] mt-8 bg-cover bg-center flex"
+      className="h-[320px] md:h-[500px] 2xl:h-[750px] mt-8 bg-cover bg-center flex"
       style={{ backgroundImage: `url(${bg1.src})` }}
     >
-      <div className="h-full w-1/2 bg-black bg-opacity-60 flex justify-center items-center">
+      <div className="h-full w-1/2 px-2 bg-black bg-opacity-60 flex justify-center items-center">
         <div className="flex flex-col gap-2 md:gap-4 w-fit text-left">
           <h1 className="md:text-xl uppercase text-primary font-semibold">
             Get Our Services
@@ -26,7 +26,7 @@ const WhyUs = () => {
             <p className="text-[10px] md:text-[14px]">We Have Experienced Team Members</p>
           </div>
           <Link href="/book-appointment">
-            <button className="bg-primary text-white rounded-xl px-6 py-2 w-fit">
+            <button className="bg-primary hidden md:block text-white rounded-xl md:px-6 px-3 py-2 w-fit">
               Book Appointment
             </button>
           </Link>
