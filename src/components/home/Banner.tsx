@@ -40,7 +40,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-[300px] md:h-screen overflow-hidden">
       <AnimatePresence>
         <motion.div
           key={banners[index].id}
@@ -48,7 +48,7 @@ const Banner = () => {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: "-100%", opacity: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="absolute w-full md:h-[550px] 2xl:h-[800px] bg-cover bg-center flex items-center justify-center"
+          className="absolute w-full h-[300px] md:h-[550px] 2xl:h-[800px] bg-cover bg-center flex items-center justify-center"
           style={{ backgroundImage: banners[index].image }}
         >
           <div className="text-white h-full flex flex-col gap-6 items-center justify-center w-full bg-black bg-opacity-50 p-6 rounded-lg text-center">
@@ -62,15 +62,15 @@ const Banner = () => {
                   fontFamily: "'Satisfy', cursive"
                   
                 }}
-                className="text-primary text-2xl"
+                className="text-primary text-xl md:text-2xl"
               >
                 {banners[index].subHeading}
               </p>
-              <h1 className="text-6xl py-5 font-medium text-white">
+              <h1 className="text-2xl md:text-4xl xl:text-6xl py-5 font-medium text-white">
                 {banners[index].heading}
               </h1>
               <Link href="/book-appointment">
-                <button className="px-4 py-2 bg-primary font-medium border-primary rounded-lg border">
+                <button className="px-4 py-2 bg-primary font-medium border-primary rounded-[10px] border">
                   {banners[index].buttonText}{" "}
                  
                 </button>
