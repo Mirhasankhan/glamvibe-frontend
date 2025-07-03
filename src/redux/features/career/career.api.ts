@@ -16,7 +16,14 @@ const careerApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+    jobs: builder.query({
+      query: () => ({
+        url: `/job-post`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useCreateServiceMutation, useExpertsQuery } = careerApi;
+export const { useCreateServiceMutation, useExpertsQuery, useJobsQuery } =
+  careerApi;

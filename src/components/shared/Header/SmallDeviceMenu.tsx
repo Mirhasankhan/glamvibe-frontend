@@ -48,8 +48,11 @@ const SmallDeviceMenu = () => {
           <Link className="hover:text-primary" href="/services" onClick={() => setOpen(false)}>
             Services
           </Link>
-          <Link className="hover:text-primary" href="/news" onClick={() => setOpen(false)}>
-            News
+          <Link className="hover:text-primary" href="/about-us" onClick={() => setOpen(false)}>
+            About Us
+          </Link>
+          <Link className="hover:text-primary" href="/career" onClick={() => setOpen(false)}>
+            Career
           </Link>
           <Link className="hover:text-primary" href="/contact" onClick={() => setOpen(false)}>
             Contact Us

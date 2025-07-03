@@ -24,10 +24,10 @@ const NavMenu = () => {
       >
         Services
       </Link>
-      <Link className="hover:text-primary" href="/">
+      <Link className="hover:text-primary" href="/about-us">
         About Us
       </Link>
-      <Link className="hover:text-primary" href="/">
+      <Link className="hover:text-primary" href="/career">
         Career
       </Link>
       {decoded?.email ? (
