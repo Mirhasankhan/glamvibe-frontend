@@ -60,8 +60,8 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
         </p>
       </div>
 
-      <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 space-y-6">
-        <div className="bg-white rounded-xl p-6 space-y-4">
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-3 md:p-8 space-y-6">
+        <div className="bg-white rounded-xl p-2 md:p-6 space-y-4">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Service Details
           </h3>
@@ -77,7 +77,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl p-6 space-y-4">
+        <div className="bg-white rounded-xl md:p-6 p-2 space-y-4">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Date & Time
           </h3>
@@ -103,7 +103,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl p-6 space-y-4">
+        <div className="bg-white rounded-xl md:p-6 p-2 space-y-4">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Contact Information
           </h3>
@@ -136,7 +136,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl p-6">
+        <div className="bg-white rounded-xl md:p-6 p-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <DollarSign className="text-green-600" size={24} />
