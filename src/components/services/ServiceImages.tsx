@@ -17,22 +17,15 @@ const ServiceImages = ({ service }: { service: any }) => {
   };
 
   return (
-    <div className="w-full">
-      {/* Main image */}
-      {mainImage && (
-        <div className="w-full relative mb-4">
-          <Image src={mainImage} alt="Main" height={620} width={800} />
-        </div>
-      )}
-
-      {/* Thumbnails */}
-      <div className="flex gap-2 overflow-x-auto">
+    <div className="w-full flex gap-4">
+      {/* Thumbnails on the left */}
+      <div className="flex flex-col gap-2 overflow-y-auto max-h-[620px]">
         {service?.result?.imageUrls
           ?.filter((img: string) => img !== mainImage)
           .map((img: string, index: number) => (
             <div
               key={index}
-              className="w-24 h-16 relative cursor-pointer flex-shrink-0"
+              className="w-16 h-16 relative cursor-pointer flex-shrink-0"
               onClick={() => handleThumbnailClick(img)}
             >
               <Image
@@ -40,11 +33,24 @@ const ServiceImages = ({ service }: { service: any }) => {
                 alt={`Thumbnail ${index}`}
                 layout="fill"
                 objectFit="cover"
-                className="rounded-md border"
+                className="rounded-[5px] border"
               />
             </div>
           ))}
       </div>
+
+      {/* Main image */}
+      {mainImage && (
+        <div className="relative flex-1 max-w-[800px]">
+          <Image
+            src={mainImage}
+            alt="Main"
+            width={800}
+            height={620}
+            className="rounded-[5px]"
+          />
+        </div>
+      )}
     </div>
   );
 };

@@ -18,17 +18,17 @@ const NavMenu = () => {
         Home
       </Link>
       <Link
-        onClick={() => setShow(!show)}
+        onMouseEnter={() => setShow(!show)}
         className="hover:text-primary"
         href="/services"
       >
         Services
       </Link>
       <Link className="hover:text-primary" href="/">
-        News
+        About Us
       </Link>
       <Link className="hover:text-primary" href="/">
-        Contact Us
+        Career
       </Link>
       {decoded?.email ? (
         <div>
