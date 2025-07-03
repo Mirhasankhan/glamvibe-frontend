@@ -140,7 +140,7 @@ const BookAppointment = () => {
           </div>
 
           {/* Main Content */}
-          <div className="flex-1 bg-white rounded-2xl shadow-xl p-8">
+          <div className="flex-1 bg-white rounded-2xl shadow-xl p-3 md:p-8">
             <div className="animate-fade-in">
               {renderStepContent()}
             </div>
