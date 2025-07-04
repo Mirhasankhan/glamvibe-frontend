@@ -1,5 +1,5 @@
 import { TService } from "@/types/common";
-import { AlarmClock, Eye } from "lucide-react";
+import { AlarmClock,  Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -7,9 +7,9 @@ import { FaStar } from "react-icons/fa6";
 
 const Card = ({ service }: { service: TService }) => {
   return (
-    <Link href={`/services/${service.id}`}  key={service.id} className="relative border-2 p-1">
+    <Link href={`/services/${service.id}`}  key={service.id} className="relative p-1">
       <Image
-        className="object-cover h-[300px] w-full"
+        className="object-cover h-[250px] w-full rounded-[4px]"
         src={service.imageUrls[0]}
         width={400}
         height={300}
@@ -29,8 +29,8 @@ const Card = ({ service }: { service: TService }) => {
           </div>
         </div>       
       </div>
-      <div className="right-8 top-12 absolute">
-        <Eye className="text-white"></Eye>
+      <div className="right-4 top-4 absolute">
+        <Heart className="text-white"></Heart>
       </div>
     </Link>
   );
