@@ -1,7 +1,6 @@
 "use client";
 import Profile from "@/components/profile/Profile";
 import { useCategoriesQuery } from "@/redux/features/services/services.api";
-import { TCategory } from "@/types/common";
 import { JWTDecode } from "@/utils/jwt";
 import Image from "next/image";
 import Link from "next/link";
@@ -41,7 +40,7 @@ const NavMenu = () => {
       )}
       {show && (
         <div className="z-20 absolute top-12   bg-white pr-12 shadow-md border-2 border-primary rounded-xl  p-4 grid grid-cols-2 gap-6">
-          {categories?.result?.map((category: TCategory) => (
+          {categories?.result?.map((category: any) => (
             <Link
               href={{
                 pathname: "/services",
@@ -59,10 +58,10 @@ const NavMenu = () => {
                   height={20}
                   width={20}
                 ></Image>
-                <p>hello</p>
+                <p>{category.categoryName}</p>
               </div>
               <h1 className="text-xs text-gray-400">
-                {category.overview} Lorem ipsum dolor sit amet con
+                {category.overview} 
               </h1>
             </Link>
           ))}

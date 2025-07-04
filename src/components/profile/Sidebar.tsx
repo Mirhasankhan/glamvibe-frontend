@@ -10,7 +10,7 @@ const Sidebar = () => {
 
 
   return (
-    <div className="border min-h-screen bg-gray-200">
+    <div className="min-h-screen">
       {sidebarItems("user" as TRoles).map((item, index) => (
         <Link key={index} href={`/${item.path}`}>
           <div

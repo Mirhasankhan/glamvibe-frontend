@@ -15,7 +15,7 @@ const JobOpenings = () => {
         <div className="bg-[#202c24] p-6 rounded-xl text-white">
           {jobs?.result?.map((job: any) => (
             <div key={job.id}>
-              <div className="flex justify-between items-center pb-4 border-b border-primary">
+              <div className="md:flex justify-between items-center pb-4 border-b border-primary">
                 <div>
                   <h1 className="text-3xl font-medium pb-2">{job.title}</h1>
                   <div className="flex md:text-xl font-medium items-center gap-1 md:gap-4">

@@ -19,10 +19,6 @@ const Services = () => {
   const { data: allExperts } = useExpertsQuery(active);
   const { data: services, isLoading } = useServicesQuery(active);
 
-  if (isLoading) {
-    return <p>Loading.........</p>;
-  }
-
   return (
     <div>
       <div
@@ -44,17 +40,25 @@ const Services = () => {
       <Container>
         <div className="grid grid-cols-3 gap-8 my-8">
           <div className="col-span-3 md:col-span-1">
-            <div className="sticky top-20">             
-              <Categories active={active} setActive={setActive} />
+            <div className="sticky top-20">
+              {isLoading ? (
+                <div className="h-60 w-full bg-gray-300 border rounded-2xl animate-pulse"></div>
+              ) : (
+                <Categories active={active} setActive={setActive} />
+              )}
             </div>
           </div>
           <div className="col-span-3 md:col-span-2">
-            <Image
-              height={400}
-              width={1500}
-              src={services?.result?.mediaUrl}
-              alt=""
-            ></Image>
+            {isLoading ? (
+              <div className="h-80 w-full bg-gray-300 border rounded-2xl animate-pulse"></div>
+            ) : (
+              <Image
+                height={400}
+                width={1500}
+                src={services?.result?.mediaUrl}
+                alt=""
+              ></Image>
+            )}
             <h1 className="text-2xl uppercase font-semibold py-6">
               {services?.result?.categoryName}
             </h1>
