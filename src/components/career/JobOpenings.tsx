@@ -2,10 +2,12 @@
 
 import { useJobsQuery } from "@/redux/features/career/career.api";
 import { Calendar, Timer } from "lucide-react";
+import ApplicationForm from "./ApplicationForm";
+import { useState } from "react";
 
 const JobOpenings = () => {
   const { data: jobs } = useJobsQuery("");
-  console.log(jobs?.result);
+  const [open, setOpen] = useState(false);
   return (
     <div className="py-6">
       <h1 className="text-3xl text-center font-medium pb-4">Job Openings</h1>
@@ -24,7 +26,10 @@ const JobOpenings = () => {
                     <h1>6 days/Week</h1>
                   </div>
                 </div>
-                <button className="bg-primary px-4 py-2 text-white rounded-2xl">
+                <button
+                  onClick={() => setOpen(!open)}
+                  className="bg-primary px-4 py-2 text-white rounded-2xl"
+                >
                   Apply Now
                 </button>
               </div>
@@ -35,6 +40,7 @@ const JobOpenings = () => {
                 </div>
                 <h1>{job.lastDate}</h1>
               </div>
+              {open && <ApplicationForm></ApplicationForm>}
             </div>
           ))}
         </div>
