@@ -35,10 +35,11 @@ const JobOpenings = () => {
               </div>
               <div className="flex justify-between items-center pt-8">
                 <div>
+                  <h1>Salary: {job.salary}</h1>
                   <h1 className="pt-2">Job Description: {job.description}</h1>
                   <h1 className="pt-2">Requirements: {job.requirements}</h1>
                 </div>
-                <h1>{job.lastDate}</h1>
+                <h1>Last Date: {job.lastDate}</h1>
               </div>
               {open && <ApplicationForm></ApplicationForm>}
             </div>

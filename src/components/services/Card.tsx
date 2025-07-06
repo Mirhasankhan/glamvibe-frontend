@@ -7,9 +7,9 @@ import { FaStar } from "react-icons/fa6";
 
 const Card = ({ service }: { service: TService }) => {
   return (
-    <Link href={`/services/${service.id}`}  key={service.id} className="p-1">
+    <div key={service.id} className="p-2 rounded-[4px] shadow-xl">
       <Image
-        className="object-cover h-[250px] w-full rounded-[4px]"
+        className="object-cover h-[300px] w-full rounded-[4px]"
         src={service.imageUrls[0]}
         width={400}
         height={300}
@@ -19,18 +19,30 @@ const Card = ({ service }: { service: TService }) => {
         <div className="flex items-center gap-2">
           <FaStar className="text-orange-300"></FaStar>
           <h1 className="font-medium">2 Review</h1>
-        </div> 
-         <p className="text-xl py-1">{service.serviceName}</p>
+        </div>
+        <p className="text-xl py-1">{service.serviceName}</p>
         <div className="flex justify-between items-center">
           <p className="font-medium">${service.price}</p>
           <div className="flex gap-1 items-center">
             <AlarmClock size={15}></AlarmClock>
             <p>1 hours</p>
           </div>
-        </div>       
+        </div>
+        <div className="flex gap-3 pt-2">
+          <Link className="w-full" href={`/services/${service.id}`}>           
+            <button className="bg-blue-500 font-medium text-white w-full py-2 rounded-[4px]">
+              View Details
+            </button>
+          </Link>
+          <Link className="w-full" href={`/book-appointment`}>           
+            <button className="bg-primary font-medium text-white w-full py-2 rounded-[4px]">
+            Book Now
+            </button>
+          </Link>
+        
+        </div>
       </div>
-      
-    </Link>
+    </div>
   );
 };
 

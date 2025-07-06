@@ -57,6 +57,7 @@ const Services = () => {
                 width={1500}
                 src={services?.result?.mediaUrl}
                 alt=""
+                className="rounded-[4px]"
               ></Image>
             )}
             <h1 className="text-2xl uppercase font-semibold py-6">
@@ -74,18 +75,18 @@ const Services = () => {
               nihil reprehenderit molestiae dolore delectus cupiditate beatae!
               Ea ipsam odit architecto! Veniam, accusantium?
             </p>
-            <h1 className="text-xl font-semibold py-4">Available Services</h1>
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
+            <h1 className="text-2xl text-primary font-semibold py-4">Available Services</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-2 md:gap-6">
               {services?.result?.servicesWithAvgRating?.map(
                 (service: TService) => (
                   <Card service={service} key={service.id}></Card>
                 )
               )}
             </div>
-            <h1 className="text-2xl font-medium">
+            <h1 className="text-2xl pt-12 text-primary pb-4 font-medium">
               Our {services?.result?.categoryName} Specialists
             </h1>
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 py-8">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 pb-8">
               <Expert experts={allExperts?.result}></Expert>
             </div>
           </div>
