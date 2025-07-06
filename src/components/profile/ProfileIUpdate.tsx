@@ -32,7 +32,7 @@ const ProfileUpdate = () => {
             <label className="font-medium pb-2 block" htmlFor="">
               Email
             </label>
-            <input className="input-design" type="email" readOnly />
+            <input placeholder="enter your email" className="input-design" type="email" readOnly />
           </div>
           <div className="w-full mt-3">
             <label className="font-medium pb-2 block" htmlFor="">
@@ -60,7 +60,7 @@ const ProfileUpdate = () => {
           <div className="flex gap-6 mt-6 items-center justify-start">
             <button
               type="submit"
-              className="text-primary bg-white border w-full py-3 rounded-xl font-medium"
+              className="text-white bg-primary border w-full py-3 rounded-[4px] font-medium"
             >
               Submit
             </button>

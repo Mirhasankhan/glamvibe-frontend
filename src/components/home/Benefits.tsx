@@ -10,59 +10,54 @@ const Benefits = () => {
   return (
    <div className=" py-12">
      <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 bg-white items-center">
         {/* Left image column with motion */}
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex gap-6"
         >
-          <img src={img2.src} alt="Benefit 2" />
-          <img src={img1.src} alt="Benefit 1" />
+          <img className="w-full h-[300px] md:h-[500px]" src={img2.src} alt="Benefit 2" />
+          <img className="w-full h-[300px] md:h-[500px]" src={img1.src} alt="Benefit 1" />
         </motion.div>
 
         {/* Right text content column with motion */}
         <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
         >
           <h3 className="text-primary text-xl font-medium">Our Benefits</h3>
-          <h1 className="text-4xl font-semibold py-3">Why Choose Us?</h1>
-          <h2 className="text-2xl text-primary pb-3">Book and enjoy our special treatments</h2>
+          <h1 className="text-2xl md:text-4xl font-semibold py-3">Why Choose Us?</h1>
+          <h2 className="text-xl md:text-2xl text-primary pb-3">Book and enjoy our special treatments</h2>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint
-            laboriosam aut incidunt debitis nobis omnis suscipit corporis
-            blanditiis consequatur odio vel ipsa quis assumenda saepe et
-            repellat, quisquam nostrum deserunt ratione reprehenderit, porro
-            perferendis? Atque consequuntur blanditiis repudiandae pariatur
-            repellendus.
+           Experience personalized care with our expert therapists, soothing ambiance, and premium treatments tailored to your needs. We focus on holistic wellness, offering relaxation and rejuvenation for your body and mind. Trust us to deliver consistent quality, professional service, and a sanctuary where your well-being comes first.
           </p>
           <div className="grid grid-cols-4 gap-6 mt-6">
             <div className="col-span-2 flex items-center gap-3 border-r">
-              <div className="bg-primary p-4 rounded-full">
-                <img className="h-12 w-12" src={experience.src} alt="Experience" />
+              <div className="bg-primary p-2 md:p-4 rounded-full">
+                <img className="md:h-12 md:w-12 -8 w-8" src={experience.src} alt="Experience" />
               </div>
-              <h1 className="text-2xl font-medium">Expert & Smart Team</h1>
+              <h1 className="text-xl md:text-2xl font-medium">Expert & Smart Team</h1>
             </div>
             <h1 className="col-span-2">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Consectetur in quaerat placeat earum velit saepe.
+             Our skilled professionals bring experience and care to every service,
+  ensuring you receive exceptional results every time you visit.
             </h1>
           </div>
           <div className="grid grid-cols-4 gap-6 mt-6">
             <div className="col-span-2 flex items-center gap-3 border-r">
-              <div className="bg-primary p-4 rounded-full">
-                <img className="h-12 w-12" src={discount.src} alt="Discount" />
+              <div className="bg-primary p-2 md:p-4 rounded-full">
+                <img className="md:h-12 md:w-12 -8 w-8" src={discount.src} alt="Discount" />
               </div>
-              <h1 className="text-2xl font-medium">Low Price & Friendly</h1>
+              <h1 className="text-xl md:text-2xl font-medium">Low Price & Friendly</h1>
             </div>
             <h1 className="col-span-2">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Consectetur in quaerat placeat earum velit saepe.
+             We offer affordable pricing without compromising on quality, delivered
+  with a warm and welcoming attitude every step of the way.
             </h1>
           </div>
         </motion.div>

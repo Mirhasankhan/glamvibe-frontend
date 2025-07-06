@@ -1,5 +1,6 @@
 "use client";
 import Banner from "@/components/home/Banner";
+import Benefits from "@/components/home/Benefits";
 // import Benefits from "@/components/home/Benefits";
 import BestServices from "@/components/home/BestServices";
 import Experts from "@/components/home/Experts";
@@ -18,8 +19,9 @@ const HOmePage = () => {
       <Banner></Banner>
   
       <BestServices></BestServices>
-      {/* <Benefits></Benefits> */}
+    
       <WhyUs></WhyUs>
+        <Benefits></Benefits>
     <Services></Services>
       <Testimonial></Testimonial>
       <Experts></Experts>

@@ -159,7 +159,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
           {isLoading ? (
             <Loader2 className="animate-spin mx-auto"></Loader2>
           ) : (
-            "Go To Payment"
+            "Confirm Booking"
           )}
         </button>
       </div>

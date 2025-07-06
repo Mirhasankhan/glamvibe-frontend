@@ -28,7 +28,7 @@ const CategoriesStep: React.FC<CategoriesStepProps> = ({
 
   const handleNext = () => {
     if (!decoded?.email) {
-      toast.error("Login first");
+      toast.error("Please login first");
       return
     }
     if (selectedCategory) {

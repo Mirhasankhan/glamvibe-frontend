@@ -18,7 +18,7 @@ const OverViewPage = () => {
               <h1 className="font-medium pb-3">Account Management</h1>
               <div className="border p-5">
                 <Image alt="" height={200} width={600} src={img1}></Image>
-                <h1 className="bg-primary text-center py-2 w-full mt-3">
+                <h1 className="bg-primary text-white font-medium rounded-[4px] text-center py-2 w-full mt-3">
                   Update Photo
                 </h1>
               </div>
