@@ -24,28 +24,34 @@ export const authOptions: NextAuthOptions = {
   //   },
   // },
   callbacks: {
-    async signIn({ user }) {
-      console.log("Inside signIn callback", user);
-  
-      if (user.name && user.email) {
-        try {
-          await fetch(`https://glamvibe-backend.vercel.app/api/v1/auth/social-login`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              username: user.name,
-              email: user.email,
-            }),
-          });
-          
-        } catch (error) {
-          console.error("Error calling social login API", error);
+  async signIn({ user }) {
+    console.log("Inside signIn callback", user);
+
+    if (user.name && user.email) {
+      try {
+        const res = await fetch(`https://glamvibe-backend.vercel.app/api/v1/auth/social-login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: user.name,
+            email: user.email,
+          }),
+        });
+
+        const result = await res.json();
+
+        if (res.ok && result?.data?.result?.accessToken) {          
+          (user as any).token = result.data.result.accessToken;
+          (user as any).role = result.data.result.userInfo.role;
         }
+      } catch (error) {
+        console.error("Error calling social login API", error);
       }
-  
-      return true;
-    },
+    }
+
+    return true;
+  },
   },
 };
