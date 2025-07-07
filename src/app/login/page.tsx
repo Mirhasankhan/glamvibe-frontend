@@ -168,7 +168,7 @@ const Login = () => {
         <button
           onClick={() =>
             signIn("github", {
-              callbackUrl: "http://localhost:3000",
+              callbackUrl: "https://glamvibe-frontend.vercel.app/",
             })
           }
           disabled={isLoading}
