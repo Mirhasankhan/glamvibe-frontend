@@ -1,7 +1,8 @@
 import Container from "@/utils/Container";
-import logo from "../../../assets/logo9.png";
+import logo from "../../../assets/logo1.avif";
 import NavMenu from "./NavMenu";
 import SmallDeviceMenu from "./SmallDeviceMenu";
+
 
 const Header = () => {
   return (
@@ -15,6 +16,7 @@ const Header = () => {
               <p>Spa Beauty</p>
             </div>
           </div>
+      
           <div>
             <NavMenu></NavMenu>
             <SmallDeviceMenu></SmallDeviceMenu>
