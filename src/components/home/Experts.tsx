@@ -8,8 +8,8 @@ const Experts = () => {
   return (
     <Container>
       <div className="py-12">
-        <h1 className="text-2xl font-bold text-center mb-8">
-          MEET OUR EXPERTS
+        <h1 className="text-2xl md:text-4xl text-primary font-bold text-center mb-8">
+          Meet Our Experts
         </h1>
         <div className="grid gap-6 grid-cols-1 md:grid-cols-3 2xl:grid-cols-4">
           <Expert experts={allExperts?.result}></Expert>

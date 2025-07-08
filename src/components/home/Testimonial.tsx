@@ -63,7 +63,7 @@ const Testimonial = () => {
   return (
     <div className="py-12">
       <Container>
-        <h1 className="text-center text-4xl font-medium pb-16">Our Testimonials</h1>
+        <h1 className="text-center text-2xl md:text-4xl text-primary font-medium pb-16">Our Testimonials</h1>
         <div className="relative ">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">

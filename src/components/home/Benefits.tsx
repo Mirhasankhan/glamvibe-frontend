@@ -43,7 +43,7 @@ const Benefits = () => {
               </div>
               <h1 className="text-xl md:text-2xl font-medium">Expert & Smart Team</h1>
             </div>
-            <h1 className="col-span-2">
+            <h1 className="col-span-2 text-sm md:text-[16px]">
              Our skilled professionals bring experience and care to every service,
   ensuring you receive exceptional results every time you visit.
             </h1>
@@ -55,7 +55,7 @@ const Benefits = () => {
               </div>
               <h1 className="text-xl md:text-2xl font-medium">Low Price & Friendly</h1>
             </div>
-            <h1 className="col-span-2">
+            <h1 className="col-span-2 text-sm md:text-[16px]">
              We offer affordable pricing without compromising on quality, delivered
   with a warm and welcoming attitude every step of the way.
             </h1>
