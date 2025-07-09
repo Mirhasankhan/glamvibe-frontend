@@ -1,18 +1,17 @@
 "use client";
 import { JWTDecode } from "@/utils/jwt";
-import Cookies from "js-cookie";
 import { LogOut, User } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useAppDispatch } from "@/redux/hooks";
+import { logOut } from "@/redux/features/auth/authSlice";
 
 const Profile = () => {
   const { decoded } = JWTDecode();
+  const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
-  const handleLogout = () => {
-    console.log("entered");
-    Cookies.remove("token");
-  };
+
   return (
     <div className="relative">
       <div
@@ -32,21 +31,35 @@ const Profile = () => {
             className="absolute top-12 right-0 z-10 w-48 rounded-md border bg-white p-2 shadow-lg"
           >
             <div className="flex flex-col gap-2">
-              <Link href="/profile/overview" className="cursor-pointer hover:bg-gray-100 p-2 rounded-md transition">
+              <Link
+                href="/profile/overview"
+                className="cursor-pointer hover:bg-gray-100 p-2 rounded-md transition"
+              >
                 Manage Profile
               </Link>
-              <Link href="/profile/appoinments" className="cursor-pointer hover:bg-gray-100 p-2 rounded-md transition">
+              <Link
+                href="/profile/appoinments"
+                className="cursor-pointer hover:bg-gray-100 p-2 rounded-md transition"
+              >
                 View Appoinments
               </Link>
-              <Link href="/profile/favourite" className="cursor-pointer hover:bg-gray-100 p-2 rounded-md transition">
+              <Link
+                href="/profile/favourite"
+                className="cursor-pointer hover:bg-gray-100 p-2 rounded-md transition"
+              >
                 Favourite Services
               </Link>
-              <Link href="/profile/settings" className="cursor-pointer hover:bg-gray-100 p-2 rounded-md transition">
+              <Link
+                href="/profile/settings"
+                className="cursor-pointer hover:bg-gray-100 p-2 rounded-md transition"
+              >
                 Settings
               </Link>
 
               <button
-                onClick={handleLogout}
+                onClick={() => {
+                  dispatch(logOut());
+                }}
                 className="w-full text-left text-red-500 hover:bg-red-50 p-2 rounded-md flex items-center gap-2 transition"
               >
                 <LogOut size={18} />

@@ -3,7 +3,6 @@ import Profile from "@/components/profile/Profile";
 import { useCurrentUser } from "@/redux/features/auth/authSlice";
 import { useCategoriesQuery } from "@/redux/features/services/services.api";
 import { useAppSelector } from "@/redux/hooks";
-import { JWTDecode } from "@/utils/jwt";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,10 +10,7 @@ import { useState } from "react";
 const NavMenu = () => {
   const [show, setShow] = useState(false);
   const { data: categories } = useCategoriesQuery("");
-  const { decoded } = JWTDecode();
   const { name } = useAppSelector(useCurrentUser);
-  console.log(name);
- 
 
   return (
     <div className="hidden relative md:flex items-center gap-12 dark:text-black text-sm font-medium uppercase">
@@ -34,7 +30,7 @@ const NavMenu = () => {
       <Link className="hover:text-primary" href="/career">
         Career
       </Link>
-      {decoded?.email ? (
+      {name ? (
         <div>
           <Profile></Profile>
         </div>
@@ -65,9 +61,7 @@ const NavMenu = () => {
                 ></Image>
                 <p>{category.categoryName}</p>
               </div>
-              <h1 className="text-xs text-gray-400">
-                {category.overview} 
-              </h1>
+              <h1 className="text-xs text-gray-400">{category.overview}</h1>
             </Link>
           ))}
         </div>
