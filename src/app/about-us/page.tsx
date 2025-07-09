@@ -1,7 +1,15 @@
+"use client";
 import Link from "next/link";
 import bgImage from "../../assets/about-us.webp";
+import arrow from "../../assets/arrow.png";
+import Image from "next/image";
+import { useExpertsQuery } from "@/redux/features/career/career.api";
+import Expert from "@/components/shared/Expert";
+import Benefits from "@/components/home/Benefits";
+import BestServices from "@/components/home/BestServices";
 
 const AboutUsPage = () => {
+  const { data: allExperts } = useExpertsQuery("");
   return (
     <div>
       <div
@@ -16,6 +24,23 @@ const AboutUsPage = () => {
             <h1 className="text-white">About</h1>
           </div>
           <h1 className="text-white text-5xl font-semibold">About Us</h1>
+        </div>
+      </div>
+        <BestServices></BestServices>
+       <Benefits></Benefits>
+      <div>
+        <h1 className="text-center text-xl md:text-4xl font-medium pt-8">
+          Our Experts
+        </h1>
+        <Image
+          className="mx-auto py-6"
+          src={arrow}
+          height={24}
+          width={200}
+          alt="sdfs"
+        ></Image>
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8 pb-8">
+          <Expert experts={allExperts?.result}></Expert>
         </div>
       </div>
     </div>

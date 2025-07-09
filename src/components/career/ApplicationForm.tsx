@@ -1,6 +1,6 @@
-import { useApplyMutation } from "@/redux/features/career/career.api";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 type FormValues = {
   fullName: string;
@@ -12,7 +12,7 @@ type FormValues = {
 };
 
 const ApplicationForm = () => {
-  const [apply, { isLoading }] = useApplyMutation();
+  // const [apply, { isLoading }] = useApplyMutation();
   const {
     register,
     handleSubmit,
@@ -33,9 +33,9 @@ const ApplicationForm = () => {
     for (const pair of formData.entries()) {
       console.log(pair[0], pair[1]);
     }
-    const response = await apply({id:"6862361b87a1a7197adbbb5a",data:formData});
-    console.log(response);
-
+    // const response = await apply({id:"6862361b87a1a7197adbbb5a",data:formData});
+    // console.log(response);
+    toast.success("Application submitted");
     reset();
     setImageFile(null);
   };
@@ -150,7 +150,6 @@ const ApplicationForm = () => {
         {/* Submit Button */}
         <div>
           <button
-            disabled={isLoading}
             type="submit"
             className="bg-primary text-white px-8 py-2 rounded"
           >
