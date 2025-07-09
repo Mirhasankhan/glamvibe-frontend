@@ -39,7 +39,7 @@ const Upcoming = () => {
             ))}
           </div>
         ) : (
-          <>{isLoading ? <Loading></Loading> : "No Completed Bookings Found"}</>
+          <>{isLoading ? <Loading></Loading> : "No Upcoming Bookings Found"}</>
         )}
       </div>
     </div>
