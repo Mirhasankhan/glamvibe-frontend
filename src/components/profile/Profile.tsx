@@ -28,7 +28,7 @@ const Profile = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.4 }}
-            className="absolute top-12 right-0 z-10 w-48 rounded-md border bg-white p-2 shadow-lg"
+            className="absolute top-12 md:right-0 z-10 w-48 rounded-md border bg-white p-2 shadow-lg"
           >
             <div className="flex flex-col gap-2">
               <Link
@@ -43,12 +43,12 @@ const Profile = () => {
               >
                 View Appoinments
               </Link>
-              <Link
+              {/* <Link
                 href="/profile/favourite"
                 className="cursor-pointer hover:bg-gray-100 p-2 rounded-md transition"
               >
                 Favourite Services
-              </Link>
+              </Link> */}
               <Link
                 href="/profile/settings"
                 className="cursor-pointer hover:bg-gray-100 p-2 rounded-md transition"
