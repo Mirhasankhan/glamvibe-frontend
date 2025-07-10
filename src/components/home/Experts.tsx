@@ -131,8 +131,8 @@ const Experts = () => {
       <h1 className="text-primary text-xl text-center pb-8 md:text-3xl xl:text-4xl font-medium">
         Our Experts
       </h1>
-      <>
-        {allExperts?.result?.slice(0, 3).map((expert: TExprt) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
+        {allExperts?.result?.slice(0, 4).map((expert: TExprt) => (
           <div
             className="bg-white rounded-[4px] p-2 shadow-lg flex flex-col items-center"
             key={expert.id}
@@ -162,7 +162,7 @@ const Experts = () => {
             </div>
           </div>
         ))}
-      </>
+      </div>
     </Container>
   );
 };

@@ -1,13 +1,16 @@
 "use client";
 import Profile from "@/components/profile/Profile";
-import { JWTDecode } from "@/utils/jwt";
+import logo from '../../../assets/logo9.png'
 import Link from "next/link";
 import { useState } from "react";
 import { RiMenu4Line } from "react-icons/ri";
 import { IoClose } from "react-icons/io5";
+import { useAppSelector } from "@/redux/hooks";
+import { useCurrentUser } from "@/redux/features/auth/authSlice";
+import Image from "next/image";
 
 const SmallDeviceMenu = () => {
-  const { decoded } = JWTDecode();
+   const { email } = useAppSelector(useCurrentUser);
   const [open, setOpen] = useState(false);
 
   return (
@@ -33,7 +36,8 @@ const SmallDeviceMenu = () => {
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex justify-end p-4">
+        <div className="flex justify-between items-center p-4">
+          <Image src={logo} alt="df" height={100} width={50}></Image>
           <IoClose
             size={24}
             className="text-black dark:text-white cursor-pointer"
@@ -58,7 +62,7 @@ const SmallDeviceMenu = () => {
             Contact Us
           </Link>
 
-          {decoded?.email ? (
+          {email ? (
             <div>
               <Profile />
             </div>

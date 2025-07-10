@@ -1,16 +1,17 @@
 "use client";
-import { JWTDecode } from "@/utils/jwt";
+
 import { LogOut, User } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useAppDispatch } from "@/redux/hooks";
-import { logOut } from "@/redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { logOut, useCurrentUser } from "@/redux/features/auth/authSlice";
 
 const Profile = () => {
-  const { decoded } = JWTDecode();
+
   const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
+    const { name } = useAppSelector(useCurrentUser);
 
   return (
     <div className="relative">
@@ -19,7 +20,7 @@ const Profile = () => {
         className="flex cursor-pointer items-center gap-1 border p-1 rounded-xl"
       >
         <User></User>
-        <p>{decoded?.userName}</p>
+        <p>{name}</p>
       </div>
       {show && (
         <AnimatePresence>

@@ -10,7 +10,7 @@ import { useState } from "react";
 const NavMenu = () => {
   const [show, setShow] = useState(false);
   const { data: categories } = useCategoriesQuery("");
-  const { name } = useAppSelector(useCurrentUser);
+  const { email } = useAppSelector(useCurrentUser);
 
   return (
     <div className="hidden relative md:flex items-center gap-12 dark:text-black text-sm font-medium uppercase">
@@ -30,7 +30,7 @@ const NavMenu = () => {
       <Link className="hover:text-primary" href="/career">
         Career
       </Link>
-      {name ? (
+      {email ? (
         <div>
           <Profile></Profile>
         </div>
