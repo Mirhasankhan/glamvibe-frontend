@@ -19,6 +19,8 @@ const Services = () => {
   const { data: allExperts } = useExpertsQuery(active);
   const { data: services, isLoading } = useServicesQuery(active);
 
+  console.log(services);
+
   return (
     <div>
       <div
@@ -64,16 +66,7 @@ const Services = () => {
               {services?.result?.categoryName}
             </h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
-              cumque quisquam debitis, amet iusto eveniet aliquid doloribus quae
-              cupiditate similique natus doloremque illo quasi. Pariatur rerum
-              repellat repellendus cumque accusantium nisi amet nihil, obcaecati
-              quasi ducimus dolorum cupiditate dolor distinctio laudantium
-              aspernatur soluta eligendi inventore nobis modi quae neque? Modi,
-              consequuntur. Modi repudiandae quia, dolor tempore debitis fugit
-              necessitatibus saepe enim illo sint atque blanditiis nobis quos
-              nihil reprehenderit molestiae dolore delectus cupiditate beatae!
-              Ea ipsam odit architecto! Veniam, accusantium?
+             {services?.result?.description}
             </p>
             <h1 className="text-2xl text-primary font-semibold py-4">Available Services</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-2 md:gap-6">
