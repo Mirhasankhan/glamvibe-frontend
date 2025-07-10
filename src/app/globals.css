@@ -6,7 +6,7 @@
 
 
 .input-design {
-  @apply px-3 py-2 border rounded-xl text-sm bg-white text-black focus:ring-2 focus:ring-primary w-full focus:outline-none;
+  @apply px-3 py-2 border rounded-[4px] text-sm bg-white text-black focus:ring-2 focus:ring-primary w-full focus:outline-none;
 }
 
 

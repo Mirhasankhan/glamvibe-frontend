@@ -24,6 +24,14 @@ const authApi = baseApi.injectEndpoints({
         body: userInfo,
       }),
     }),
+    profile: builder.query({
+      query: () => ({
+        url: "/auth/profile",
+        method: "GET",
+        
+      }),
+      providesTags:["users"]
+    }),
     sendOtp: builder.mutation({
       query: (email) => ({
         url: "/auth/send-otp",
@@ -44,6 +52,29 @@ const authApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: newPassword,
       }),
+    }),
+    changePassword: builder.mutation({
+      query: (newPassword) => ({
+        url: "/auth/reset-password",
+        method: "PATCH",
+        body: newPassword,
+      }),
+    }),
+    updateImage: builder.mutation({
+      query: (image) => ({
+        url: "/users/update/profileImage",
+        method: "PUT",
+        body: image,
+      }),
+      invalidatesTags:["users"]
+    }),
+    updateProfile: builder.mutation({
+      query: (data) => ({
+        url: "/users/update",
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags:["users"]
     }),
 
     allUsers: builder.query({
@@ -67,9 +98,12 @@ const authApi = baseApi.injectEndpoints({
 export const {
   useSendOtpMutation,
   useRegisterMutation,
+  useProfileQuery,
+  useUpdateImageMutation,
   useLoginMutation,
   useAllUsersQuery,
   useUpdateUserStatusMutation,
+  useUpdateProfileMutation,
   useSocialLoginMutation,
   useVerifyOtpMutation,
   useResetPasswordMutation

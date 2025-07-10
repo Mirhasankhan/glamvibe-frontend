@@ -55,6 +55,7 @@ export interface TExprt {
 
 export interface IFormInput {
   oldPassword: string;
+  email:string
   newPassword: string;
   confirm: string;
   username: string;

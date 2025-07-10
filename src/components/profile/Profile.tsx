@@ -8,10 +8,9 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logOut, useCurrentUser } from "@/redux/features/auth/authSlice";
 
 const Profile = () => {
-
   const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
-    const { name } = useAppSelector(useCurrentUser);
+  const { name } = useAppSelector(useCurrentUser);
 
   return (
     <div className="relative">

@@ -17,7 +17,7 @@ const ChangePassword = () => {
   };
 
   return (
-    <div>
+    <div className="lg:w-2/3 mx-auto">
       <div className="bg-white rounded-md mt-6">      
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="md:flex gap-6 my-3">
@@ -68,7 +68,7 @@ const ChangePassword = () => {
           <div className="flex gap-6 mt-6 items-center justify-start">
             <button
               type="submit"
-              className="text-primary bg-white border w-full py-3 rounded-xl font-medium"
+              className="text-white bg-primary border w-full py-3 rounded-xl font-medium"
             >
               Change Password
             </button>
