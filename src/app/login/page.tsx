@@ -19,7 +19,7 @@ import { setUser } from "@/redux/features/auth/authSlice";
 const Login = () => {
   const [loginUser, { isLoading }] = useLoginMutation();
   const router = useRouter();
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   const {
     register,
@@ -33,15 +33,16 @@ const Login = () => {
 
       if (response.data?.result?.accessToken) {
         toast.success("Login Successful");
+      
         router.push("/");
-          dispatch(
-        setUser({
-          name: response.data.result.userInfo.username,
-          email: response.data.result.userInfo.email,
-          role: response.data.result.userInfo.role,
-          token: response.data.result.accessToken,
-        })
-      );
+        dispatch(
+          setUser({
+            name: response.data.result.userInfo.username,
+            email: response.data.result.userInfo.email,
+            role: response.data.result.userInfo.role,
+            token: response.data.result.accessToken,
+          })
+        );
         Cookies.set("token", response.data?.result.accessToken);
       } else if (response.error) {
         toast.error(response.error.data.message);
@@ -92,7 +93,7 @@ const Login = () => {
           </div>
           <div className="flex justify-between items-center py-3">
             <div className="flex items-center space-x-2">
-              <Checkbox id="terms"/>
+              <Checkbox id="terms" />
               <label
                 htmlFor="terms"
                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -115,7 +116,7 @@ const Login = () => {
             {isLoading ? "Authenticating..." : "Login"}
           </button> */}
           <button
-          disabled={isLoading}
+            disabled={isLoading}
             type="submit"
             className="text-[#FFF] py-2 font-semibold rounded-2xl w-full bg-primary"
           >
@@ -146,7 +147,6 @@ const Login = () => {
               <>Login</>
             )}
           </button>
-
         </form>
         <div className="flex items-center justify-center my-4">
           <div className="flex-1 border-t border-gray-300"></div>

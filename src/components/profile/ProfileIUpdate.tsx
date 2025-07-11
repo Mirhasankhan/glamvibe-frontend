@@ -12,6 +12,7 @@ import { Loader2 } from "lucide-react";
 
 const ProfileUpdate = () => {
   const { data: profile } = useProfileQuery("");
+  console.log(profile);
   const [updateProfile, { isLoading }] = useUpdateProfileMutation();
   const { register, handleSubmit, reset } = useForm<IFormInput>();
 

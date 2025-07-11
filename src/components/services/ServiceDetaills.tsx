@@ -17,10 +17,7 @@ const ServiceDetaills = ({ service }: { service: any }) => {
       </h1>
       <h1>Category: {service?.result?.category?.categoryName}</h1>
       <h1 className="py-2">
-        {service?.result?.description}jflskdfjl Lorem ipsum dolor sit, amet
-        consectetur adipisicing elit. Quo pariatur nemo accusantium amet
-        quisquam possimus voluptates, ipsa sint? Velit provident eaque error
-        accusantium assumenda quae nihil laboriosam officia obcaecati a?
+        {service?.result?.description}
       </h1>
 
       <Link href="/book-appointment">  

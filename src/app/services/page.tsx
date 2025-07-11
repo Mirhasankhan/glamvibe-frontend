@@ -18,8 +18,7 @@ const Services = () => {
   const [active, setActive] = useState(category || "682b475155275c85dc32b417");
   const { data: allExperts } = useExpertsQuery(active);
   const { data: services, isLoading } = useServicesQuery(active);
-
-  console.log(services);
+console.log(category);
 
   return (
     <div>
