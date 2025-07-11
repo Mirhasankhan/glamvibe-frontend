@@ -1,11 +1,11 @@
-import { TService } from "@/types/common";
 import { AlarmClock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaStar } from "react-icons/fa6";
 
-const Card = ({ service }: { service: TService }) => {
+const Card = ({ service }: { service: any }) => {
+  console.log(service);
   return (
     <div key={service.id} className="p-2 rounded-[4px] shadow-xl">
       <Image
@@ -16,9 +16,12 @@ const Card = ({ service }: { service: TService }) => {
         alt=""
       ></Image>
       <div className="p-2">
-        <div className="flex items-center gap-2">
-          <FaStar className="text-orange-300"></FaStar>
-          <h1 className="font-medium">2 Review</h1>
+        <div className="flex items-center gap-1">
+          <div className="flex items-center gap-0.5">
+            <FaStar className="text-orange-300"></FaStar>
+            <h1 className="font-medium">{service?.avgRating}</h1>
+          </div>
+          <h1>({service?.review?.length} reviews)</h1>
         </div>
         <p className="text-xl py-1">{service.serviceName}</p>
         <div className="flex justify-between items-center">
@@ -29,17 +32,16 @@ const Card = ({ service }: { service: TService }) => {
           </div>
         </div>
         <div className="flex gap-3 pt-2">
-          <Link className="w-full" href={`/services/${service.id}`}>           
+          <Link className="w-full" href={`/services/${service.id}`}>
             <button className="bg-blue-500 font-medium text-white w-full py-2 rounded-[4px]">
               View Details
             </button>
           </Link>
-          <Link className="w-full" href={`/book-appointment`}>           
+          <Link className="w-full" href={`/book-appointment`}>
             <button className="bg-primary font-medium text-white w-full py-2 rounded-[4px]">
-            Book Now
+              Book Now
             </button>
           </Link>
-        
         </div>
       </div>
     </div>
