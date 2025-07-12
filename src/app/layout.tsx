@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <head> <link rel="icon" type="image/png" href="/logo9.png" /></head>
       <body
-        className={`${roboto.variable}} antialiased`}
+        className={`${roboto.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

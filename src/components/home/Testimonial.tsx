@@ -2,7 +2,8 @@ import Container from "@/utils/Container";
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
-import img1 from "../../assets/image2.jpeg";
+import img2 from "../../assets/expert2.jpg";
+import img1 from "../../assets/expert1.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -10,7 +11,7 @@ const testimonials = [
   {
     id: 1,
     text: "Amazing service! Highly recommend to everyone. Amazing service! Highly recommend to everyone. service! Highly recommend to everyone.",
-    img: img1,
+    img: img2,
   },
   {
     id: 2,
@@ -20,7 +21,7 @@ const testimonials = [
   {
     id: 3,
     text: "Ahell hlkl hly recommend to everyone. Amazing service! Highly recommend to everyone. service! Highly recommend to everyone.",
-    img: img1,
+    img: img2,
   },
   {
     id: 4,
@@ -30,7 +31,7 @@ const testimonials = [
   {
     id: 5,
     text: "ly recommend Amazing service! High to everyone. Amazing service! Highly recommend to everyone. service! Highly recommend to everyone.",
-    img: img1,
+    img: img2,
   },
   {
     id: 6,

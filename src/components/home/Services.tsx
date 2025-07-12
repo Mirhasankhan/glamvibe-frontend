@@ -80,7 +80,7 @@ const Services = () => {
         </div>
       </div>
       <div className="md:flex justify-between">
-         <div className="md:hidden w-full">
+        <div className="md:hidden w-full">
           <Image
             className="object-cover h-full 2xl:h-[494px] w-full"
             src={ser2}

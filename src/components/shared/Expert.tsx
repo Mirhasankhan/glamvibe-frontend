@@ -12,6 +12,7 @@ const Expert = ({ experts }: { experts: TExprt[] }) => {
           key={expert.id}
         >
           <Image
+          
             alt="expert"
             className="object-cover rounded-[4px] h-[280px] w-full"
             height={300}

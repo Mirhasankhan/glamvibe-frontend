@@ -45,7 +45,7 @@ const Register = () => {
 
   return (
     <div className="bg-gradient-to-br from-purple-50 p-2 via-blue-50 to-indigo-100 py-12 min-h-screen">
-      <div className="w-full md:w-2/5 2xl:w-1/4 shadow-md mx-auto p-6 dark:text-white bg-white rounded-xl">
+      <div className="w-full md:w-2/5 2xl:w-1/4 shadow-md mx-auto p-6 dark:text-white bg-white rounded-[4px]">
         <Image src={logo} alt="" height={60} width={60}></Image>
         <h1 className="text-xl font-medium ppy-2 ">Create Account</h1>
         <p className="text-sm">
@@ -61,7 +61,7 @@ const Register = () => {
               {...register("username", {
                 required: "Full name is required",
               })}
-              className="w-full p-2 border rounded-xl"
+              className="w-full p-2 border rounded-[4px]"
               placeholder="Enter your fullname"
             />
             {errors.username && (
@@ -74,7 +74,7 @@ const Register = () => {
               {...register("email", {
                 required: "Email is required",
               })}
-              className="w-full p-2 border rounded-xl"
+              className="w-full p-2 border rounded-[4px]"
               placeholder="Enter your email"
             />
             {errors.email && (
@@ -92,7 +92,7 @@ const Register = () => {
                   message: "Password must be at least 6 characters long",
                 },
               })}
-              className="w-full p-2 border rounded-xl"
+              className="w-full p-2 border rounded-[4px]"
               placeholder="Enter password"
             />
             {errors.password && (
@@ -102,7 +102,7 @@ const Register = () => {
           <button
             disabled={isLoading}
             type="submit"
-            className="bg-primary text-white py-3 w-full font-medium rounded-xl"
+            className="bg-primary text-white py-3 w-full font-medium rounded-[4px]"
           >
             {isLoading ? "Signing Up.." : "Create Account"}
           </button>
@@ -115,7 +115,7 @@ const Register = () => {
         <button
           disabled={isLoading}
           type="submit"
-          className="bg-white flex items-center gap-2 justify-center border py-3 w-full rounded-xl"
+          className="bg-white flex items-center gap-2 justify-center border py-3 w-full rounded-[4px]"
         >
           <FcGoogle size={20} /> Sign Up With Google
         </button>
