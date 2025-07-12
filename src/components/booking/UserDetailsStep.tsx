@@ -1,5 +1,6 @@
 
-import { JWTDecode } from "@/utils/jwt";
+import { useCurrentUser } from "@/redux/features/auth/authSlice";
+import { useAppSelector } from "@/redux/hooks";
 import { useForm } from "react-hook-form";
 
 interface UserDetailsStepProps {
@@ -24,7 +25,8 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
     userEmail: string;
     phone: string;
   }>();
-  const {decoded} = JWTDecode()
+  
+    const {email,name} = useAppSelector(useCurrentUser)
 
   const handleFormSubmit = (data: {
     userName: string;
@@ -56,7 +58,7 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
             id="userName"
             type="text"
             placeholder="Enter your full name"
-            defaultValue={decoded?.userName}
+            defaultValue={name as string}
             {...register("userName")}
             className="w-full p-2 border rounded-xl"
           />
@@ -67,7 +69,7 @@ const UserDetailsStep: React.FC<UserDetailsStepProps> = ({
           <input
             id="userEmail"
             type="email"
-             defaultValue={decoded?.email}
+             defaultValue={email as string}
             readOnly
             {...register("userEmail", {
               required: "Email is required"

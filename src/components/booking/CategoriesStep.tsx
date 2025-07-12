@@ -3,8 +3,9 @@ import { useState } from "react";
 import { useCategoriesQuery } from "@/redux/features/services/services.api";
 import Image from "next/image";
 import CategoryLoading from "../loadingData/CategoryLoading";
-import { JWTDecode } from "@/utils/jwt";
 import { toast } from "react-toastify";
+import { useAppSelector } from "@/redux/hooks";
+import { useCurrentUser } from "@/redux/features/auth/authSlice";
 
 interface CategoriesStepProps {
   onNext: () => void;
@@ -22,12 +23,12 @@ const CategoriesStep: React.FC<CategoriesStepProps> = ({
     setSelectedCategory(categoryId);
     onSelect(categoryId);
   };
+    const {email} = useAppSelector(useCurrentUser)
 
-  const { decoded } = JWTDecode();
-  console.log(decoded);
+
 
   const handleNext = () => {
-    if (!decoded?.email) {
+    if (!email) {
       toast.error("Please login first");
       return
     }

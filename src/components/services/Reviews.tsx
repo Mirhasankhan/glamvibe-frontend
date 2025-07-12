@@ -1,6 +1,6 @@
-import Image from "next/image";
 import profielImage from "../../assets/expert2.jpg";
-import { Star } from "lucide-react";
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const Reviews = ({ service }: { service: any }) => {
   return (
@@ -11,25 +11,18 @@ const Reviews = ({ service }: { service: any }) => {
             <div className="bg-white p-2 rounded-xl" key={ser.id}>
               <div className=" flex mt-2 justify-between items-center">
                 <div className="flex gap-1 items-center">
-                  <Image
-                    className="rounded-full"
-                    src={ser.user.profielImage || profielImage}
-                    height={50}
-                    width={30}
+                  <img
+                    className="rounded-full h-8 w-8"
+                    src={ser.user.profileImage || profielImage}
+                  
                     alt=""
-                  ></Image>
+                  />
                   <h1 className="text-xl font-medium">{ser?.user?.username}</h1>
                 </div>
-                <div className="flex items-center gap-1">
-                  <Star></Star>
-                  <Star></Star>
-                  <Star></Star>
-                  <Star></Star>
-                  <Star></Star>
-                </div>
+                 <Rating style={{ maxWidth: 100 }} value={ser.rating} />
               </div>
               <h1 className="py-1">{ser.comment}</h1>
-              <h1>6 July, 2025</h1>
+              <small>6 July, 2025</small>
             </div>
           ))}
         </div>
