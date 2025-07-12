@@ -7,6 +7,7 @@ import { useExpertsQuery } from "@/redux/features/career/career.api";
 import Expert from "@/components/shared/Expert";
 import Benefits from "@/components/home/Benefits";
 import BestServices from "@/components/home/BestServices";
+import Container from "@/utils/Container";
 
 const AboutUsPage = () => {
   const { data: allExperts } = useExpertsQuery("");
@@ -26,8 +27,8 @@ const AboutUsPage = () => {
           <h1 className="text-white text-5xl font-semibold">About Us</h1>
         </div>
       </div>
-        <BestServices></BestServices>
-       <Benefits></Benefits>
+      <BestServices></BestServices>
+      <Benefits></Benefits>
       <div>
         <h1 className="text-center text-xl md:text-4xl font-medium pt-8">
           Our Experts
@@ -39,9 +40,11 @@ const AboutUsPage = () => {
           width={200}
           alt="sdfs"
         ></Image>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8 pb-8">
-          <Expert experts={allExperts?.result}></Expert>
-        </div>
+        <Container>     
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8 pb-8">
+            <Expert experts={allExperts?.result}></Expert>
+          </div>
+        </Container>
       </div>
     </div>
   );
