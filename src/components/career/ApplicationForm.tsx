@@ -1,3 +1,5 @@
+import { useApplyMutation } from "@/redux/features/career/career.api";
+import { Loader2 } from "lucide-react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -12,7 +14,7 @@ type FormValues = {
 };
 
 const ApplicationForm = () => {
-  // const [apply, { isLoading }] = useApplyMutation();
+  const [apply, { isLoading }] = useApplyMutation();
   const {
     register,
     handleSubmit,
@@ -29,15 +31,18 @@ const ApplicationForm = () => {
     if (imageFile) {
       formData.append("files", imageFile);
     }
-
-    for (const pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
+      
+    const response: any = await apply({
+      id: "6862361b87a1a7197adbbb5a",
+      data: formData,
+    });
+    if (response.data) {
+      toast.success("Application submitted");
+      reset();
+      setImageFile(null);
+    } else if (response.error) {
+      toast.error(response.error.data.message);
     }
-    // const response = await apply({id:"6862361b87a1a7197adbbb5a",data:formData});
-    // console.log(response);
-    toast.success("Application submitted");
-    reset();
-    setImageFile(null);
   };
 
   return (
@@ -153,7 +158,11 @@ const ApplicationForm = () => {
             type="submit"
             className="bg-primary text-white px-8 py-2 rounded"
           >
-            Submit
+            {isLoading ? (
+              <Loader2 className="mx-auto animate-spin"></Loader2>
+            ) : (
+              "Submit"
+            )}
           </button>
         </div>
       </form>
