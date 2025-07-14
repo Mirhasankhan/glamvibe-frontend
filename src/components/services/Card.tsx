@@ -8,13 +8,23 @@ const Card = ({ service }: { service: any }) => {
   console.log(service);
   return (
     <div key={service.id} className="p-2 rounded-[4px] shadow-xl">
-      <Image
+      {/* <Image
         className="object-cover h-[300px] w-full rounded-[4px]"
         src={service.imageUrls[0]}
         width={400}
         height={300}
         alt=""
-      ></Image>
+      ></Image> */}
+      <div className="relative w-full h-[300px] overflow-hidden">
+        <Image
+          src={service.imageUrls[0]}
+          alt="service"
+          fill
+          className="object-cover"
+          quality={100}
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+      </div>
       <div className="p-2">
         <div className="flex items-center gap-1">
           <div className="flex items-center gap-0.5">

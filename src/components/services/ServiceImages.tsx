@@ -50,6 +50,7 @@ const ServiceImages = ({ service }: { service: any }) => {
             className="rounded-[5px]"
           />
         </div>
+       
       )}
     </div>
   );

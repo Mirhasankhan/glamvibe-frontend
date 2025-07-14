@@ -29,13 +29,15 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ bookingData }) => {
       startTime: bookingData?.timeSlot,
       phone: bookingData?.phone,
     };
-    const response = await createBooking(boking);
-    console.log(response);
-
-    router.push("/");
-    toast.success("Booking Confirmed");
+    const response :any= await createBooking(boking);
+    if (response.data) {
+      router.push("/");
+      toast.success("Booking Confirmed");
+    }
+    else if (response.error) {
+        toast.error(response.error.data.message);
+      }
   };
-  console.log(bookingData);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
