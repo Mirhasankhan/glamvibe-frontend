@@ -1,14 +1,14 @@
 "use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { FaGithub } from "react-icons/fa6";
+// import { FaGithub } from "react-icons/fa6";
 import logo from "../../assets/logo1.avif";
 import Image from "next/image";
 import { TLoginValues } from "@/types/common";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
-import { signIn } from "next-auth/react";
+// import { FcGoogle } from "react-icons/fc";
+// import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { toast } from "react-toastify";
@@ -62,6 +62,9 @@ const Login = () => {
         <p className="text-sm">
           Enter to get unlimited access to data & information
         </p>
+        <h1 className="pt-3">Email: mirhasan000034@gmail.com</h1>
+        <p>Password: 123456</p>
+        {/* https://advocate-service-finder.lovable.app/ */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="rounded-lg pt-6 bg-white"
@@ -148,12 +151,12 @@ const Login = () => {
             )}
           </button>
         </form>
-        <div className="flex items-center justify-center my-4">
+        {/* <div className="flex items-center justify-center my-4">
           <div className="flex-1 border-t border-gray-300"></div>
           <span className="px-3 text-gray-500 text-sm">Or, Login with</span>
           <div className="flex-1 border-t border-gray-300"></div>
-        </div>
-        <button
+        </div> */}
+        {/* <button
           onClick={() =>
             signIn("google", {
               callbackUrl: "https://glamvibe-frontend.vercel.app/",
@@ -176,7 +179,7 @@ const Login = () => {
           className="bg-white flex items-center gap-2 justify-center border py-3 w-full rounded-md mt-3"
         >
           <FaGithub size={20} /> Sign In With Github
-        </button>
+        </button> */}
         <div className="text-center pt-2">
           Dont have an account?
           <Link href="/register" className="text-primary hover:underline">

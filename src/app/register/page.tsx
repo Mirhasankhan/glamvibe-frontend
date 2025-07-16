@@ -5,7 +5,7 @@ import logo from "../../assets/logo1.avif";
 import Image from "next/image";
 import { TLoginValues } from "@/types/common";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import { useRegisterMutation } from "@/redux/features/auth/authApi";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -107,18 +107,18 @@ const Register = () => {
             {isLoading ? "Signing Up.." : "Create Account"}
           </button>
         </form>
-        <div className="flex items-center justify-center my-4">
+        {/* <div className="flex items-center justify-center my-4">
           <div className="flex-1 border-t border-gray-300"></div>
           <span className="px-3 text-gray-500 text-sm">Or, Login with</span>
           <div className="flex-1 border-t border-gray-300"></div>
-        </div>
-        <button
+        </div> */}
+        {/* <button
           disabled={isLoading}
           type="submit"
           className="bg-white flex items-center gap-2 justify-center border py-3 w-full rounded-[4px]"
         >
           <FcGoogle size={20} /> Sign Up With Google
-        </button>
+        </button> */}
         <div className="flex pt-2 justify-center">
           <h1>Already have an account?</h1>
           <Link href="/login" className="text-primary hover:underline">
